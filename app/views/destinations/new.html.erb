@@ -1,0 +1,5 @@
+<%= simple_form_for [ @destination.user ] do |f| %>
+  <%= f.input :start_point %>
+  <%= f.input :end_point %>
+  <%= f.submit "Find your Buddy!", class: "btn btn-primary" %>
+<% end %>
