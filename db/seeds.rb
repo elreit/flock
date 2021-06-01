@@ -14,8 +14,6 @@ Walk.destroy_all
 Destination.destroy_all
 User.destroy_all
 
-photo = URI.open('https://ath2.unileverservices.com/wp-content/uploads/sites/4/2020/02/IG-annvmariv-1024x1016.jpg')
-
 puts "Creating users"
 2.times do
   user = User.new(
@@ -26,7 +24,7 @@ puts "Creating users"
     emergency_contact_number: "07707872023",
     emergency_contact_name: Faker::FunnyName.two_word_name,
   )
-  user.photo.attach(io: photo, filename: 'user.jpg', content_type: 'image/jpg')
+  user.photo.attach(io: URI.open('https://res.cloudinary.com/diq781xvq/image/upload/v1621452023/aflbe156grlwfz860qfp7a00edau.jpg'), filename: 'avatar.png', content_type: 'image/jpg')
   user.save!
 end
 
@@ -62,6 +60,3 @@ walk.save!
 
 
 puts "#{Walk.count} walk has been created"
-
-
-
