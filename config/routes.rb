@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :destinations, only: [:index, :new, :create, :update]
   resources :walks, only: [:create, :show, :update]
+  get 'dashboard', to: 'users#dashboard'
 end
