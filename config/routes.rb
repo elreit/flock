@@ -9,4 +9,5 @@ Rails.application.routes.draw do
     end
   end
   resources :walks, only: [:create, :show, :update]
+  get 'dashboard', to: 'users#dashboard'
 end
