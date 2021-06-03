@@ -1,21 +1,18 @@
 class DestinationsController < ApplicationController
-  def show
-    @destination = Destination.find(params[:id])
-  end
-  
+
   def update
     @destination = Destination.find(params[:id])
     @destination.started = true
-    @walk = Walk.where(user_destination_id: params[:id])
     @destination.save
-    redirect_to walk_path(@walk)
+    # To be change after adding walk
+    redirect_to destination_path(@destination.id), notice: "Walk started!"
   end
 
   def arrived
-    @destination = @destination = Destination.find(params[:id])
+    @destination = Destination.find(params[:id])
     @destination.arrived = true
-    @walk = Walk.where(user_destination_id: params[:id])
     @destination.save
+    redirect_to destination_path(@destination.id), notice: "You have arrived!"
     #redirect to review page
   end
 end
