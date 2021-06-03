@@ -2,13 +2,16 @@ class DestinationsController < ApplicationController
 
   def new
     @destination = Destination.new
-    @destination.user = current_user
   end
 
   def create
     @destination = Destination.new(destination_params)
-    @destination.save
-      redirect_to destinations_path(@destinations)
+    @destination.user = current_user
+    if @destination.save
+      redirect_to destinations_path
+    else
+      render :new
+    end
   end
 
   private
