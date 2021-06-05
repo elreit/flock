@@ -3,7 +3,6 @@ class DestinationsController < ApplicationController
     @destination = Destination.new
     @location = Location.new
   end
-# testing
 
   def create
     @start_location = Location.create(address: params[:destination][:start_location])
