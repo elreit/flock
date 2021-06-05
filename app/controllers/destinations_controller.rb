@@ -38,5 +38,7 @@ class DestinationsController < ApplicationController
     redirect_to destination_path(@destination.id), notice: "You have arrived!"
     # redirect to review page
   end
+
   private
+
 end
