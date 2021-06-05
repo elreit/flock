@@ -6,14 +6,19 @@
 <div class="container" class="tab-content" align="center">
 
   <div class="tab-pane fade in show active" id="request">
-    <p>Hello</p>
-    <% @walk.each do |walk| %>
-      <%= walk.meeting_point %>
-    <% end %>
+    <p>This tab show all of my requests</p>
+    <p>Buddy: <%= @my_buddy.name %></p>
+    <p>Meeting point: <%= @my_walk_request.meeting_point %></p>
   </div>
 
   <div class="tab-pane fade" id="incoming">
-    <p>Goodbye</p>
+    <p>This tab show all of requests sent to me</p>
+    <p>Requester: <%= @requester.name %> </p>
+    <p>Meeting point: <%= @walk_request_received.meeting_point %></p>
+
+    <p class="button"><%= link_to 'Confirm', walk_path, method: 'PATCH' %></p>
+    <p class="button"><%= link_to 'Decline', walk_path, method: 'PATCH' %></p>
+    <p class="button"><%= link_to 'Accept', walk_path(@walk_request_received), method: 'PATCH' %></p>
   </div>
 
   <div>

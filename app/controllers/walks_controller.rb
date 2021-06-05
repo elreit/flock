@@ -1,7 +1,7 @@
 class WalksController < ApplicationController
   def create
     @walk = Walk.new(walk_params)
-    @walk.pin = "1234"
+    @walk.pin = Faker::Code.nric
     @walk.user_destination_id = Destination.where(user_id: current_user.id).last.id
     if @walk.save
       redirect_to dashboard_path(current_user.id)
@@ -9,6 +9,7 @@ class WalksController < ApplicationController
   end
 
   def update
+    @walk = Walk.find()
   end
 
   private
