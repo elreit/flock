@@ -1,26 +1,36 @@
 class DestinationsController < ApplicationController
-  def index
-    @destinations = Destination.all
+  def new
+    @destination = Destination.new
+  end
 
-   #  User.near(@current_user, 10, units: :mi).each do |user|
-   #   puts "#{user.name} is #{user.distance} clicks to the #{user.bearing}"
-   # end
-
-    @markers = @destinations.geocoded.map do |destination|
-      {
-        lat: destination.latitude,
-        lng: destination.longitude
-      }
+  def create
+    @destination = Destination.new(destination_params)
+    @destination.user = current_user
+    if @destination.save
+      redirect_to destinations_path
+    else
+      render :new
     end
   end
 
-#   if obj.geocoded?
-#   obj.nearbys(30)                       # other objects within 30 miles
-#   obj.distance_from([40.714,-100.234])  # distance from arbitrary point to object
-#   obj.bearing_to("Paris, France")       # direction from object to arbitrary point
-#   end
+  def update
+    @destination = Destination.find(params[:id])
+    @destination.started = true
+    @destination.save
+    # To be change after adding walk
+    redirect_to destination_path(@destination.id), notice: "Walk started!"
+  end
 
-  # def address
-  #   [street, city, state, country].compact.join(', ')
-  # end
+  def arrived
+    @destination = Destination.find(params[:id])
+    @destination.arrived = true
+    @destination.save
+    redirect_to destination_path(@destination.id), notice: "You have arrived!"
+    #redirect to review page
+
+  private
+
+  def destination_params
+    params.require(:destination).permit(:start_point, :end_point)
+  end
 end

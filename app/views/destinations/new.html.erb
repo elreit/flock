@@ -1,0 +1,7 @@
+<div>
+  <%= simple_form_for [ @destination ] do |f| %>
+    <%= f.input :start_point, :label => 'Walk starting point' %>
+    <%= f.input :end_point, :label => 'End' %>
+    <%= f.submit "Find your Buddy!", class: "button" %>
+  <% end %>
+</div>
