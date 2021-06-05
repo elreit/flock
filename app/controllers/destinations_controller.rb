@@ -13,6 +13,16 @@ class DestinationsController < ApplicationController
     end
   end
 
+  def index
+    @destinations = Destination.all
+      @destinations.each do |destination|
+      @start_location_id = destination.start_location_id
+      @end_location_id = destination.end_location_id
+      # @start_nearby = User.near(current_user, 10, units: :mi)
+      # @end_nearby = User.near(current_user, 10, units: :mi)
+    end
+  end
+
   def update
     @destination = Destination.find(params[:id])
     @destination.started = true
@@ -27,7 +37,7 @@ class DestinationsController < ApplicationController
     @destination.save
     redirect_to destination_path(@destination.id), notice: "You have arrived!"
     #redirect to review page
-
+  end
   private
 
   def destination_params
