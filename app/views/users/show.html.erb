@@ -2,6 +2,15 @@
   <%= cl_image_tag @user.photo.key, :style => "width: 100px; height: 100px; border-radius: 50%;" %>
   <h2><%= @user.name%></h2>
   <p><%= @user.description %></p>
-  <%= link_to 'Confirm Buddy', dashboard_path %>
+  <div>
+    <%= simple_form_for [ @walk ] do |f| %>
+      <%= f.input :meeting_point, :label => 'Enter the meeting point' %>
+      <%= f.hidden_field :buddy_destination_id, value: @destination.id %>
+      <%= f.submit "Confirm Buddy!", class: "button" %>
+    <% end %>
+  </div>
   <%= link_to 'Back to results', destinations_path %>
 </div>
+
+
+<%= @destination.id %>
