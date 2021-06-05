@@ -16,5 +16,6 @@ class UsersController < ApplicationController
     @walk_request_received = Walk.where(buddy_destination_id: my_destination.id).last
     requester_destination = Destination.where(id: @walk_request_received.user_destination_id).last
     @requester = requester_destination.user
+    raise
   end
 end

@@ -11,6 +11,7 @@ require 'open-uri'
 
 puts "Cleaning the database"
 Walk.destroy_all
+Location.destroy_all
 Destination.destroy_all
 User.destroy_all
 
@@ -30,19 +31,35 @@ end
 
 puts "#{User.count} users have been created"
 
+puts "Creating locations"
+
+start_point1 = Location.new(address: "Le Wagon, London")
+start_point1.save!
+start_point2 = Location.new(address: "Le Wagon, London")
+start_point2.save!
+
+puts "2 start points have been created"
+
+end_point1= Location.new(address: "Shoreditch, London")
+end_point1.save!
+end_point2 = Location.new(address: "Shoreditch, London")
+end_point2.save!
+
+puts "2 end points have been created"
+
 puts "Creating destinations"
 
 dest1 = Destination.new(
     user: User.first,
-    start_point: "Le Wagon",
-    end_point: "Disneyland"
+    start_location_id: start_point1.id,
+    end_location_id: end_point1.id
     )
 dest1.save!
 
 dest2 = Destination.new(
     user: User.last,
-    start_point: "Le Wagon",
-    end_point: "Disneyland"
+    start_location_id: start_point2.id,
+    end_location_id: end_point2.id
     )
 dest2.save!
 
@@ -56,7 +73,5 @@ walk = Walk.new(
   meeting_point: "Front door LW",
   pin: "1234")
 walk.save!
-
-
 
 puts "#{Walk.count} walk has been created"
