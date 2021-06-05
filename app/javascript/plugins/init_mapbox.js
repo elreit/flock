@@ -2,7 +2,7 @@ import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 const initMapbox = () => {
-  const mapElement = document.getElementById('map'); # comes from div file view
+  const mapElement = document.getElementById('map');
 
   if (mapElement) {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey; # or should this say process.env.MAPBOX_API_KEY;
