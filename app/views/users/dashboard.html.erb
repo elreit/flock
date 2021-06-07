@@ -9,20 +9,20 @@
     <p>This tab show all of my requests</p>
     <p>Buddy: <%= @my_buddy.name %></p>
     <p>Meeting point: <%= @my_walk_request.meeting_point %></p>
-    <p>Request status:
-      <% if @my_walk_request.walk_accepted == false %>
-        Pending
-      <% end %>
-    </p>
+    <p>Request status: <%= @my_walk_request.walk_request_status %></p>
   </div>
 
   <div class="tab-pane fade" id="incoming">
     <p>This tab show all of requests sent to me</p>
     <p>Requester: <%= @requester.name %> </p>
     <p>Meeting point: <%= @walk_request_received.meeting_point %></p>
-
-    <p class="button"><%= link_to 'Accept', walk_path(@walk_request_received), method: 'PATCH' %></p>
-    <p class="button"><%= link_to 'Decline', walk_path(@walk_request_received), method: 'PATCH' %></p>
+    <% if @walk_request_received.walk_request_status == "Pending" %>
+      <p class="button"><%= link_to 'Accept', walk_path(@walk_request_received, format: 'Confirmed'), method: 'PATCH' %></p>
+      <p class="button"><%= link_to 'Decline', walk_path(@walk_request_received, format: 'Declined'), method: 'PATCH' %></p>
+    <% else %>
+      <p><%= @walk_request_received.walk_request_status %></p>
+      <p class="button"><%= link_to 'Cancel', walk_path(@walk_request_received, format: 'Declined'), method: 'PATCH' %></p>
+    <% end %>
   </div>
 
   <div>
