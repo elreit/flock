@@ -1,12 +1,11 @@
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
-<%= @start_location_id  %>
-<%= @end_location_id %>
-
-<!--   # @markers = @destinations.each do |destination|
- @start_location_id = User.near(@current_user, 10, units: :mi).each do |user|
- puts " #{user.name} is #{user.distance} clicks to the #{user.bearing}"
- -->
+<div>
+  <h3>Results</h3>
+  <h4><%= @destinations.count %> Flockers nearby...</h4>
+</div>
+<div class="container" align="center">
+  <% @destinations.each do |destination| %>
+    <%= cl_image_tag destination.user.photo.key, :style => "width: 210px; height: auto;" %><br>
+    <%=  destination.user.name %>
+    <%=  Geocoder::Calculations.distance_between([@destination.start_location.latitude, @destination.start_location.longitude], [destination.start_location.latitude, destination.start_location.longitude]) %>
+  <% end %>
+</div>

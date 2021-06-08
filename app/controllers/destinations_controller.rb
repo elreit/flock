@@ -1,10 +1,13 @@
 class DestinationsController < ApplicationController
   def new
     @destination = Destination.new
+    @location = Location.new
   end
 
   def create
-    @destination = Destination.new(destination_params)
+    @start_location = Location.create(address: params[:destination][:start_location])
+    @end_location = Location.create(address: params[:destination][:end_location])
+    @destination = Destination.new(start_location_id: @start_location.id, end_location_id: @end_location.id)
     @destination.user = current_user
     if @destination.save
       redirect_to destinations_path
@@ -14,13 +17,10 @@ class DestinationsController < ApplicationController
   end
 
   def index
-    @destinations = Destination.all
-      @destinations.each do |destination|
-      @start_location_id = destination.start_location_id
-      @end_location_id = destination.end_location_id
-      # @start_nearby = User.near(current_user, 10, units: :mi)
-      # @end_nearby = User.near(current_user, 10, units: :mi)
-    end
+    @destination = current_user.destinations.last
+    @start_locations = Location.near([@destination.start_location.latitude, @destination.start_location.longitude], 2.5)
+    @end_locations = Location.near([@destination.end_location.latitude, @destination.end_location.longitude], 2.5)
+    @destinations = Destination.where(start_location_id: @start_locations.map(&:id), end_location_id: @end_locations.map(&:id))
   end
 
   def update
@@ -36,11 +36,9 @@ class DestinationsController < ApplicationController
     @destination.arrived = true
     @destination.save
     redirect_to destination_path(@destination.id), notice: "You have arrived!"
-    #redirect to review page
+    # redirect to review page
   end
+
   private
 
-  def destination_params
-    params.require(:destination).permit(:start_point, :end_point)
-  end
 end
