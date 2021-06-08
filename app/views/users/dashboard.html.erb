@@ -6,6 +6,10 @@
 
   <div class="tab-pane fade in show active" id="request">
     <p>This tab show all of my requests</p>
+    <div id="map"
+     style="width: 800px; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     <% if @my_walk_request %>
     <div class="card mt-4" style="width: 800px;height: 180px">
       <div class="card-body d-flex justify-content-between align-items-center">
@@ -13,6 +17,7 @@
         <div>
           <p class="card-title">Buddy: <%= @my_buddy.name %></p>
           <p class="card-text">Meeting point: <%= @my_walk_request.meeting_point %></p>
+          <%= link_to 'Show Map' ,walk_path(@my_walk_request) %>
         </div>
         <p class="card-text">Request status: <%= @my_walk_request.walk_request_status %></p>
         <% if @my_walk_request.walk_request_status == "Confirmed" %>

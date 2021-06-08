@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_07_220308) do
+ActiveRecord::Schema.define(version: 2021_06_08_190336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,8 @@ ActiveRecord::Schema.define(version: 2021_06_07_220308) do
     t.bigint "user_destination_id"
     t.bigint "buddy_destination_id"
     t.string "walk_request_status", default: "Pending"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["buddy_destination_id"], name: "index_walks_on_buddy_destination_id"
     t.index ["user_destination_id"], name: "index_walks_on_user_destination_id"
   end
