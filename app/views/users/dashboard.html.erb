@@ -11,10 +11,13 @@
       <div class="card-body d-flex justify-content-between align-items-center">
         <%= cl_image_tag @my_buddy.photo.key, :style => "width: 100px; height: 100px;" %>
         <div>
-          <p>Buddy: <%= @my_buddy.name %></p>
-          <p>Meeting point: <%= @my_walk_request.meeting_point %></p>
+          <p class="card-title">Buddy: <%= @my_buddy.name %></p>
+          <p class="card-text">Meeting point: <%= @my_walk_request.meeting_point %></p>
         </div>
-        <p>Request status: <%= @my_walk_request.walk_request_status %></p>
+        <p class="card-text">Request status: <%= @my_walk_request.walk_request_status %></p>
+        <% if @my_walk_request.walk_request_status == "Confirmed" %>
+          <p><%= @my_walk_request.pin %></p>
+        <% end %>
       </div>
     </div>
     <% end %>
@@ -28,16 +31,20 @@
         <%= cl_image_tag @requester.photo.key, :style => "width: 100px; height: 100px;" %>
         <div>
           <p>Requester: <%= @requester.name %> </p>
-          <p>Meeting point: <%= @walk_request_received.meeting_point %></p>
+          <p class="card-text">Meeting point: <%= @walk_request_received.meeting_point %></p>
         </div>
-        <% if @walk_request_received.walk_request_status == "Pending" %>
+        <% case @walk_request_received.walk_request_status %>
+        <% when "Pending" %>
           <p class="button"><%= link_to 'Accept', walk_path(@walk_request_received, format: 'Confirmed'), method: 'PATCH' %></p>
           <p class="button"><%= link_to 'Decline', walk_path(@walk_request_received, format: 'Declined'), method: 'PATCH' %></p>
-        <% elsif @walk_request_received.walk_request_status == "Cancelled" %>
+        <% when "Cancelled" %>
           <p><%= @walk_request_received.walk_request_status %></p>
+        <% when "Confirmed" %>
+          <p><%= @walk_request_received.walk_request_status %></p>
+          <p class="card-text">PIN: <%= @walk_request_received.pin %></p>
+          <p class="button"><%= link_to 'Cancel', walk_path(@walk_request_received, format: 'Cancelled'), method: 'PATCH' %></p>
         <% else %>
           <p><%= @walk_request_received.walk_request_status %></p>
-          <p class="button"><%= link_to 'Cancel', walk_path(@walk_request_received, format: 'Cancelled'), method: 'PATCH' %></p>
         <% end %>
       </div>
     </div>
