@@ -1,14 +1,19 @@
 class WalksController < ApplicationController
   def create
     @walk = Walk.new(walk_params)
-    @walk.pin = "1234"
+    @walk.pin = Faker::Code.nric
     @walk.user_destination_id = Destination.where(user_id: current_user.id).last.id
     if @walk.save
-      redirect_to dashboard_path(current_user.id)
+      redirect_to dashboard_path(current_user)
     end
   end
 
   def update
+    @walk = Walk.find(params[:id])
+    @walk.walk_request_status = params[:format]
+    #changing the schema walk_accepted
+    @walk.save
+    redirect_to dashboard_path(current_user)
   end
 
   private
