@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>You will meet</h1>
+
+  <h3 class="text-center">Show your pin <%= @walk.pin %></h3>
+
+  <div id="map"
+   style="width: 800px; height: 600px;"
+   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+  <%= image_tag 'Icons/103-Location.png', alt:"Start button" %>
+</div>
