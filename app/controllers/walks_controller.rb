@@ -14,6 +14,7 @@ class WalksController < ApplicationController
     @my_buddy = User.find(my_buddy_destination.user_id)
     @meet_point_lng = @walk.longitude
     @meet_point_lat = @walk.latitude
+    @my_destination = Destination.where(id: @walk.user_destination_id).last
   end
 
   def update
