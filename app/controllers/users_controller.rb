@@ -23,7 +23,5 @@ class UsersController < ApplicationController
       end
     end
     # Mapbox
-    @meeting_point = @my_walk_request
-    @markers = [lat: @meeting_point.latitude, lng: @meeting_point.longitude]
   end
 end
