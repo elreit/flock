@@ -8,6 +8,10 @@ class WalksController < ApplicationController
     end
   end
 
+  def show
+    @walk = Walk.find(params[:id])
+  end
+
   def update
     @walk = Walk.find(params[:id])
     @walk.walk_request_status = params[:format]
