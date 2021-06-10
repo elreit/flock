@@ -96,7 +96,7 @@ const initDestinationMap = () => {
           layout: {
           'line-join': 'round',
           'line-cap': 'round'
-        },
+          },
         paint: {
           'line-color': '#3887be',
           'line-width': ['interpolate', ['linear'], ['zoom'], 12, 3, 22, 12]
@@ -209,7 +209,7 @@ const initDestinationMap = () => {
     }
   }
 
-}
+//}
 
 
 
