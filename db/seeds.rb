@@ -29,6 +29,22 @@ puts "Creating users"
   user.save!
 end
 
+mai = User.new(name: "Mai Hoang", email: "mai@email.com", password: "123456", description: "I am currently a tax consultant and wanted to change my career. I wanted to learn coding because I have learned it before at uni and enjoyed it. After the course, I am looking to start my career in tech", emergency_contact_name: "Kim", emergency_contact_number: "07707872023")
+mai.photo.attach(io: URI.open('https://res.cloudinary.com/diq781xvq/image/upload/v1623343312/15093533_1_kd79gh.png'), filename: 'avatar.png', content_type: 'image/png')
+mai.save!
+
+luisa = User.new(name: "Luisa Von Funcke", email: "luisa@email.com", password: "123456", description: "I am working in Quality Assurance in a big tech company. This bootcamp will give me a career boost towards the product team! Otherwise, I am also curious to learn what I can build and create, that is not work related.", emergency_contact_name: "Kim", emergency_contact_number: "07707872023")
+luisa.photo.attach(io: URI.open('https://res.cloudinary.com/diq781xvq/image/upload/v1623198674/gcowectu20048ugsvp3qj3hmcli7.jpg'), filename: 'avatar.jpg', content_type: 'image/jpg')
+luisa.save!
+
+rosi = User.new(name: "Rosita Alvarado", email: "rosi@email.com", password: "123456", description: "I'm from Los Angeles and moved to London this past March. I currently work as an administrative manager of an academic research journal and am looking to gain new skills.", emergency_contact_name: "Kim", emergency_contact_number: "07707872023")
+rosi.photo.attach(io: URI.open('https://res.cloudinary.com/diq781xvq/image/upload/v1623343311/67096324_i2t9rc.jpg'), filename: 'avatar.jpg', content_type: 'image/jpg')
+rosi.save!
+
+emma = User.new(name: "Emma Reitman", email: "emma@email.com", password: "123456", description: "Hiya! I am from London and work at an advertising agency. I have now been there 6 years and been lucky enough to work with international brands and have made some great ads. Tech has always interested me and I am now looking forward to making a career shift into the industry.", emergency_contact_name: "Kim", emergency_contact_number: "07707872023")
+emma.photo.attach(io: URI.open('https://res.cloudinary.com/diq781xvq/image/upload/v1623244458/6vbv8m886mj2088y6r4g99f6onxj.jpg'), filename: 'avatar.jpg', content_type: 'image/jpg')
+emma.save!
+
 puts "#{User.count} users have been created"
 
 puts "Creating locations"
@@ -37,15 +53,27 @@ start_point1 = Location.new(address: "Le Wagon, London")
 start_point1.save!
 start_point2 = Location.new(address: "Le Wagon, London")
 start_point2.save!
+start_point3 = Location.new(address: "Canning Town Station, London")
+start_point3.save!
+start_point4 = Location.new(address: "Hoxton Station, London")
+start_point4.save!
+start_point5 = Location.new(address: "Star Lane Station, London")
+start_point5.save!
 
-puts "2 start points have been created"
+puts "5 start points have been created"
 
 end_point1= Location.new(address: "Shoreditch, London")
 end_point1.save!
 end_point2 = Location.new(address: "Shoreditch, London")
 end_point2.save!
+end_point3 = Location.new(address: "Excel London")
+end_point3.save!
+end_point4 = Location.new(address: "University of East London, London")
+end_point4.save!
+end_point5 = Location.new(address: "Hoxton Station, London")
+end_point5.save!
 
-puts "2 end points have been created"
+puts "5 end points have been created"
 
 puts "Creating destinations"
 
@@ -62,6 +90,27 @@ dest2 = Destination.new(
     end_location_id: end_point2.id
     )
 dest2.save!
+
+dest3 = Destination.new(
+    user: luisa,
+    start_location_id: start_point3.id,
+    end_location_id: end_point3.id
+)
+dest3.save!
+
+dest4 = Destination.new(
+    user: emma,
+    start_location_id: start_point5.id,
+    end_location_id: end_point4.id
+)
+dest4.save!
+
+dest5 = Destination.new(
+    user: rosi,
+    start_location_id: start_point3.id,
+    end_location_id: end_point4.id
+)
+dest5.save!
 
 puts "#{Destination.count} destinations have been created"
 
