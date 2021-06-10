@@ -9,7 +9,7 @@
       <% @destinations.each do |destination| %>
       <%= link_to user_path(destination.user) do %>
       <div class="card">
-        <%= cl_image_tag destination.user.photo.key :style => "width: 100px; height: 100px; border-radius: 50%"%>
+        <%= cl_image_tag destination.user.photo.key, :style => "width: 100px; height: 100px; border-radius: 50%"%>
         <div class="card-body d-flex">
           <p class="justify-content-left"><%= destination.user.name %></p>
 <!--           <div class="icon_container">
