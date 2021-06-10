@@ -1,13 +1,15 @@
 <div>
-  <%= cl_image_tag @user.photo.key, :style => "width: 100px; height: 100px; border-radius: 50%;" %>
-  <h2><%= @user.name%></h2>
-  <p><%= @user.description %></p>
-  <div>
+  <%= cl_image_tag @user.photo.key, :style => "width: 380px; height: auto; margin-left: 20px; margin-right: 20px;" %>
+  <h2 style="padding-top: 5px; padding-left: 20px; padding-right: 20px;background: #EEE; margin-right: -12px; margin-bottom: -12px;"><%= @user.name%></h2>
+    <p style="text-align: left; padding: 10px; color: #000; background: #EEE; margin-right: -12px;"><%= @user.description %></p>
     <%= simple_form_for [ @walk ] do |f| %>
-      <%= f.input :meeting_point, :label => 'Enter the meeting point' %>
-      <%= f.hidden_field :buddy_destination_id, value: @destination.id %>
-      <%= f.submit "Confirm Buddy!", class: "button" %>
+     <div class="form-inputs" align="center">
+        <%= f.input :meeting_point, placeholder: 'Enter your meeting point',  label: false, input_html: {style: 'height:45px; width: 300px'} %>
+     </div>
+        <%= f.hidden_field :buddy_destination_id, value: @destination.id %>
+      <div class="form-actions" align="center">
+        <%= f.submit "Confirm Buddy!", class: "btn btn-dark btn-lg", :style => "background: #FD5C65 !important; padding-top: 12px; padding-bottom: 12px;" %>
+    </div>
     <% end %>
-  </div>
-  <%= link_to 'Back to results', destinations_path %>
+  <img src="https://i.imgur.com/MobsgyG.png" style="width: 20%; height: auto;" align="right"<%= link_to 'Back to results', destinations_path %>>
 </div>
