@@ -6,9 +6,6 @@ class User < ApplicationRecord
 
   has_many :destinations, -> { order 'created_at asc' }
   has_one_attached :photo
-  geocoded_by :ip_address,
-    :latitude => :lat, :longitude => :lon
-  after_validation :geocode
   validates_presence_of :photo
   validates :name, :description, :emergency_contact_name, :emergency_contact_number, presence: true
   validates :emergency_contact_number, format: { with: /\A(?:\+?\d{1,3}\s*-?)?\(?(?:\d{3})?\)?[- ]?\d{3}[- ]?\d{4}\z/, message: "Please enter a valid phone number"}
