@@ -1,11 +1,36 @@
-<div class="container">
-  <h1>You will meet</h1>
+<div class="container" class="tab-content" align="center">
 
-  <h3 class="text-center">Show your pin <%= @walk.pin %></h3>
+  <div class="tab-pane fade in show active" id="meeting-point">
+    <h3 align="left">You will meet at...</h3>
+    <h4 align="center">Show your pin <%= @walk.pin %></h4>
 
-  <div id="map"
-   style="width: 800px; height: 600px;"
-   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      <div id="map"
+        style="width: 800px; height: 600px;"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
 
-  <%= image_tag 'Icons/103-Location.png', alt:"Start button" %>
+      <div>
+        <button id="button">Start your walk!</button>
+      </div>
+  </div>
+
+  <div class="tab-pane fade" id="messaging">
+    <p>This tab shows WhatsApp Web</p>
+  </div>
+</div>
+
+<div class="dashboard-tabs">
+  <ul class="nav nav-pills justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#meeting-point">
+        <img class="icon-marker" src="https://i.imgur.com/xtCh3Pk.png" title="source: imgur.com">
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#messaging">
+        <img class="icon-letter" src="https://i.imgur.com/jAw3Wrn.png" title="source: imgur.com">
+        <span class="badge">3</span>
+      </a>
+    </li>
+  </ul>
 </div>

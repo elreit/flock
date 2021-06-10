@@ -1,7 +1,11 @@
-<div>
+<div class="container d-flex">
   <%= simple_form_for :destination, url: destinations_path do |f| %>
-    <%= f.input :start_location, :label => 'Walk starting point' %>
-    <%= f.input :end_location, :label => 'End' %>
-    <%= f.submit "Find your Buddy!", class: "button" %>
+    <div class="align-items-center" style="color: white; width: 300px">
+      <%= f.input :start_location, :label => 'Walk starting point' %>
+      <%= f.input :end_location, :label => 'End' %>
+    </div>
+    <div class="align-items-center">
+      <%= f.submit "Find your Buddy!", class: "btn btn-dark btn-lg", :style => "background: #FD5C65 !important; padding-top: 12px; padding-bottom: 12px;" %>
+    </div>
   <% end %>
 </div>
