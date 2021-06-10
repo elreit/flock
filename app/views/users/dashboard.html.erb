@@ -5,7 +5,7 @@
 <div class="container" class="tab-content" align="center">
 
   <div class="tab-pane fade in show active" id="request">
-    <p>This tab show all of my requests</p>
+    <h4>This tab show all of my requests</h4>
     <div id="map"
      style="width: 800px; height: 300px;"
      data-markers="<%= @markers.to_json %>"
@@ -31,7 +31,7 @@
   </div>
 
   <div class="tab-pane fade" id="incoming">
-    <p>This tab show all of requests sent to me</p>
+    <h4>This tab show all of requests sent to me</h4>
     <% if @walk_request_received %>
     <div class="card mt-4" style="width: 800px;height: 180px">
       <div class="card-body d-flex justify-content-between align-items-center">
