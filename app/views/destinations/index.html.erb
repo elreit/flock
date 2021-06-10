@@ -1,30 +1,25 @@
 <div class="container-fluid">
   <h3>Results</h3>
-  <h4><%= @destinations.count %> Flocker(s) nearby...</h4>
+    <h4><%= @destinations.reject{|dest| dest.user == current_user}.count %> Flocker(s) nearby...</h4>
 </div>
-
 <div class="cards_container">
   <div class="cards">
     <% if @destinations %>
-      <% @destinations.each do |destination| %>
+      <% @destinations.reject{|dest| dest.user == current_user}.each do |destination| %>
       <%= link_to user_path(destination.user) do %>
       <div class="card">
-        <%= cl_image_tag destination.user.photo.key, :style => "width: 100px; height: 100px; border-radius: 50%"%>
-        <div class="card-body d-flex">
-          <p class="justify-content-left"><%= destination.user.name %></p>
+        <%= cl_image_tag destination.user.photo.key %>
+        <div class="text-block" style="font-size: 20px;"><%= destination.user.name %></div>
 <!--           <div class="icon_container">
             <img src="https://i.imgur.com/7wtIesu.png" style="width: 60px; height: auto;">
           </div> -->
-          <p class="justify-content-right"><%= Geocoder::Calculations.distance_between([@destination.start_location.latitude, @destination.start_location.longitude], [destination.start_location.latitude, destination.start_location.longitude]).round %> miles</p>
+            <p><%= Geocoder::Calculations.distance_between([@destination.start_location.latitude, @destination.start_location.longitude], [destination.start_location.latitude, destination.start_location.longitude]).round(3) %> miles</p>
       </div>
       <% end %>
       <% end %>
     <% else %>
       <h3>There are 0 Flockers nearby</h3>
       <p>Don't worry! We've got you covered!</p>
-      <div>
-        <button id="button ">Start your walk!</button>
-      </div>
     <% end %>
   </div>
 </div>
