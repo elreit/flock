@@ -83,4 +83,7 @@ const initDestinationMap = () => {
     // Getting the optimised API
   }
 }
+
+
+
 export { initDestinationMap };
