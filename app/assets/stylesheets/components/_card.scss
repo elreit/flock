@@ -65,3 +65,18 @@ a:hover {
   display: flex;
   justify-content: center;
 }
+
+#text-dashboard {
+  color: black;
+  font-size: 16px;
+  text-align: left;
+  margin-left: 10px;
+}
+
+#tab-dashboard {
+  background-color: #FD5C65;
+}
+
+#tab-dashboard:hover {
+  color: white;
+}
