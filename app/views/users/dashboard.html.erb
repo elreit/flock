@@ -1,40 +1,42 @@
-<div class="container" style="margin-top: 10px;">
+<!-- <div class="container" style="margin-top: 10px;">
   <h3 align="center">Dashboard</h3>
-</div>
+</div> -->
 
 <div class="container" class="tab-content" align="center">
 
   <div class="tab-pane fade in show active" id="request">
-    <p>This tab show all of my requests</p>
+    <h4>Requests sent</h4>
+
     <div id="map"
      style="width: 800px; height: 300px;"
      data-markers="<%= @markers.to_json %>"
      data-start-point="<%= @start_point %>"
      data-meet-point="<%= @meet_point %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+
     <% if @my_walk_request %>
     <div class="card mt-4" style="width: 800px;height: 180px">
       <div class="card-body d-flex justify-content-between align-items-center">
-        <%= cl_image_tag @my_buddy.photo.key, :style => "width: 100px; height: 100px;" %>
+        <%= cl_image_tag @my_buddy.photo.key, :style => "width: 100px; height: 100px; border-radius: 50%" %>
         <div>
-          <p class="card-title">Buddy: <%= @my_buddy.name %></p>
-          <p class="card-text">Meeting point: <%= @my_walk_request.meeting_point %></p>
-          <%= link_to 'Getting there' ,walk_path(@my_walk_request) %>
+          <p id = "text-dashboard">Buddy: <%= @my_buddy.name %></p>
+          <p id="text-dashboard">Meeting point: <%= @my_walk_request.meeting_point %></p>
+          <%= link_to 'Getting there' ,walk_path(@my_walk_request), :style => "color: #FD5C65;" %>
         </div>
-        <p class="card-text">Request status: <%= @my_walk_request.walk_request_status %></p>
+        <p id = "text-dashboard">Request status: <%= @my_walk_request.walk_request_status %></p>
         <% if @my_walk_request.walk_request_status == "Confirmed" %>
           <p><%= @my_walk_request.pin %></p>
         <% end %>
       </div>
     </div>
     <% end %>
-  </div>
 
   <div class="tab-pane fade" id="incoming">
-    <p>This tab show all of requests sent to me</p>
+    <h4>Requests received</h4>
     <% if @walk_request_received %>
     <div class="card mt-4" style="width: 800px;height: 180px">
-      <div class="card-body d-flex justify-content-between align-items-center">
+      <div class="card-body d-flex justify-content-center align-items-center">
         <%= cl_image_tag @requester.photo.key, :style => "width: 100px; height: 100px;" %>
         <div>
           <p>Requester: <%= @requester.name %> </p>
@@ -57,15 +59,20 @@
     </div>
     <% end %>
   </div>
+</div>
 
-  <div>
-    <ul class="nav nav-pills justify-content-center" style="margin: 30px 150px 30px 150px;">
-      <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#request">Request</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#incoming">Incoming</a>
-      </li>
-    </ul>
-  </div>
+<div class="dashboard-tabs">
+  <ul class="nav nav-pills justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#request">
+        <img class="icon-person" src="https://i.imgur.com/gNYUbFp.png" title="source: imgur.com">
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#incoming">
+        <img class="icon-letter" src="https://i.imgur.com/giHPsCH.png" title="source: imgur.com">
+        <span class="badge">3</span>
+      </a>
+    </li>
+  </ul>
 </div>
