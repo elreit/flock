@@ -1,14 +1,17 @@
-<div class="container" style="margin-top: 10px;">
-  <h2>Let's walk home...</h2>
+<div class="container" style="margin-top: 10px;" align="center">
+  <h3>Let's walk home...</h3>
 
-  <div id="destinationmap"
-   style="width: 800px; height: 600px;"
-   data-meet-point="<%= @meet_point %>"
-   data-user-end="<%= @user_coords %>"
-   data-buddy-end="<%= @buddy_coords %>"
-   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-   </div>
+  <div class = "d-flex justify-content-between">
+    <div id="destinationmap"
+     style="width: 800px; height: 600px;"
+     data-meet-point="<%= @meet_point %>"
+     data-user-end="<%= @user_coords %>"
+     data-buddy-end="<%= @buddy_coords %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+     </div>
+    <div id="instructions"></div>
+  </div>
 
-  <p class="btn btn-primary">Share your location</p>
-  <p class="btn btn-warning">I've arrived</p>
+  <p class="btn btn-primary" align="center">Share your location</p>
+  <p class="btn btn-warning" align="center">I've arrived</p>
 </div>
