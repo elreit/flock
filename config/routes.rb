@@ -8,6 +8,10 @@ Rails.application.routes.draw do
       patch "arrived"
     end
   end
-  resources :walks, only: [:create, :show, :update]
+  resources :walks, only: [:create, :show, :update] do
+    member do
+      get "routes"
+    end
+  end
   get 'dashboard', to: 'users#dashboard'
 end

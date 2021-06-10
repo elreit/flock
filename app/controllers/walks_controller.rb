@@ -25,6 +25,20 @@ class WalksController < ApplicationController
     redirect_to dashboard_path(current_user)
   end
 
+  def routes
+    @walk = Walk.find(params[:id])
+    # Meeting point lat lng
+    @meet_point = "#{@walk.longitude}, #{@walk.latitude}"
+    # User destination lat lng
+    user_dest_id = Destination.find(@walk.user_destination_id).end_location_id
+    user_end_location = Location.find(user_dest_id)
+    @user_coords = "#{user_end_location.longitude}, #{user_end_location.latitude}"
+    # Buddy destination lat lng
+    buddy_dest_id = Destination.find(@walk.buddy_destination_id).end_location_id
+    buddy_end_location = Location.find(buddy_dest_id)
+    @buddy_coords = "#{buddy_end_location.longitude}, #{buddy_end_location.latitude}"
+  end
+
   private
 
   def walk_params
