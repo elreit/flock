@@ -19,7 +19,7 @@
         <div>
           <p id = "text-dashboard">Buddy: <%= @my_buddy.name %></p>
           <p id="text-dashboard">Meeting point: <%= @my_walk_request.meeting_point %></p>
-          <%= link_to 'Getting there' ,walk_path(@my_walk_request), :style => "color: #167FFB;" %>
+          <%= link_to 'Getting there' ,walk_path(@my_walk_request), :style => "color: #FD5C65;" %>
         </div>
         <p id = "text-dashboard">Request status: <%= @my_walk_request.walk_request_status %></p>
         <% if @my_walk_request.walk_request_status == "Confirmed" %>
