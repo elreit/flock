@@ -12,8 +12,13 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
+
+    <% if params[:action] == 'new' %>
+        <%= render 'shared/new' %>
+      <% else %>
+        <%= render 'shared/navbar' %>
+      <% end %>
     <%= yield %>
 
   </body>
