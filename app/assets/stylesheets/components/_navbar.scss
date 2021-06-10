@@ -11,3 +11,19 @@
   width: 90px;
   height: auto;
 }
+
+.dashboard-tabs .nav-pills .nav-item img {
+  width: 100px;
+  height: 50px;
+  object-fit: contain;
+ }
+
+.dashboard-tabs .nav-pills .nav-item .active {
+  background: $flock-pink;
+}
+
+.badge {
+  background: grey;
+  border-radius: 50%;
+  text-color: white;
+}

@@ -1,9 +1,11 @@
-<div class="container" style="margin-top: 10px;">
-  <h2>You will meet <%= @my_buddy.name %>...</h2>
+<div class="container" class="tab-content" align="center">
+
+  <div class="tab-pane fade in show active" id="meeting-point">
+    <h2>You will meet <%= @my_buddy.name %>...</h2>
     <h3 class="text-center">Show your pin: <%= @walk.pin %></h3>
     <h3 class="btn text-center" id="tab-dashboard"><%= link_to "Let's flock!", routes_walk_path(@walk) %></h3>
 
-  <div class = "d-flex justify-content-between">
+    <div class = "d-flex justify-content-between">
 
     <div id="routemap"
      style="width: 800px; height: 600px;"
@@ -14,5 +16,25 @@
 
     <div id="instructions"></div>
   </div>
+  </div>
 
+  <div class="tab-pane fade" id="messaging">
+    <p>This tab shows WhatsApp Web</p>
+  </div>
+</div>
+
+<div class="dashboard-tabs">
+  <ul class="nav nav-pills justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#meeting-point">
+        <img class="icon-marker" src="https://i.imgur.com/xtCh3Pk.png" title="source: imgur.com">
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#messaging">
+        <img class="icon-letter" src="https://i.imgur.com/jAw3Wrn.png" title="source: imgur.com">
+        <span class="badge">3</span>
+      </a>
+    </li>
+  </ul>
 </div>
