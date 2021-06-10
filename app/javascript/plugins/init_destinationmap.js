@@ -209,4 +209,8 @@ const initDestinationMap = () => {
     }
   }
 
+}
+
+
+
 export { initDestinationMap };
