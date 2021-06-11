@@ -1,4 +1,6 @@
-<div class="container d-flex">
+<div class="container">
+  <h3 class= "text-center">Create a new walk</h3>
+  <br />
   <%= simple_form_for :destination, url: destinations_path do |f| %>
     <div class="align-items-center" style="color: white; width: 300px">
       <%= f.input :start_location, :label => 'Walk starting point' %>
@@ -7,7 +9,7 @@
       <%= image_tag 'Icons/522-Home.png', alt:"Locate icon", width: "20px", height: "20px" %> <a href ="#" id = "find-me" style="color: white; text-decoration: underline;">Home</a>
     </div>
     <div class="align-items-center">
-      <%= f.submit "Find your Buddy!", class: "btn", :style => "background: #FD5C65; color: white; padding-top: 12px; padding-bottom: 12px;margin-top:10px;" %>
+      <%= f.submit "Find your Buddy!", class: "btn", :style => "background: #FD5C65; color: white; margin-top:10px;" %>
     </div>
   <% end %>
 </div>

@@ -1,2 +1,26 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<h1 id="title-home">Never walk alone</h1>
+
+<%= image_tag "https://i.imgur.com/w9BcFWB.png", class: "logo-home" %>
+
+<div class="home-container d-flex flex-column bd-highlight mb-3">
+  <div class="p-2 bd-highlight"><%= link_to "Log in", new_user_session_path, class: "btn", style: "background: #FD5C65;color: white; width: 200px; border-radius: 10px"%></div>
+  <div class="p-2 bd-highlight"><%= link_to "Sign up", new_user_registration_path, class: "btn", style: "background: #FD5C65; color: white; width: 200px; border-radius: 10px" %></div>
+</div>
+
+
+	<div class="bird-container bird-container--one">
+		<div class="bird bird--one"></div>
+	</div>
+
+	<div class="bird-container bird-container--two">
+		<div class="bird bird--two"></div>
+	</div>
+
+	<div class="bird-container bird-container--three">
+		<div class="bird bird--three"></div>
+	</div>
+
+	<div class="bird-container bird-container--four">
+		<div class="bird bird--four"></div>
+	</div>
