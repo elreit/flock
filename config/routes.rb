@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       patch "arrived"
     end
   end
+  get "coords", to: 'destinations#get_user_coords', as: :coords
   resources :walks, only: [:create, :show, :update] do
     member do
       get "routes"

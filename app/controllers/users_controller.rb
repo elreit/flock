@@ -4,6 +4,18 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @destination = Destination.where(user_id: params[:id]).last
     @walk = Walk.new
+    @total_walks = 0
+    # get all past destinations
+    past_destinations = Destination.where(user_id: params[:id])
+    # find walks that have user_destination && walk_request_status accepted
+    past_destinations.each do |dest|
+      walks_as_requestor = Walk.where(user_destination_id: dest.id, walk_request_status: "Accepted").count
+      @total_walks += walks_as_requestor
+    # find walks that have buddy_destination && walk_request_status accepted
+      walks_as_buddy = Walk.where(buddy_destination_id: dest.id, walk_request_status: "Accepted").count
+      @total_walks += walk_as_buddy
+    end
+    # count the above 2 to get total number of past walks
   end
 
   def dashboard

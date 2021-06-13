@@ -4,6 +4,14 @@ class DestinationsController < ApplicationController
     @location = Location.new
   end
 
+  def get_user_coords
+    @destination = Destination.new
+    @location = Location.new
+    lat = params[:lat].to_f
+    lng = params[:lng].to_f
+    @current_location = Geocoder.search([lat, lng]).first.data["display_name"]
+  end
+
   def create
     @start_location = Location.create(address: params[:destination][:start_location])
     @end_location = Location.create(address: params[:destination][:end_location])
