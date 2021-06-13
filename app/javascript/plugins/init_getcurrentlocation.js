@@ -8,10 +8,10 @@ function success(pos) {
    url: '/coords',
    data: {'lat': lat, 'lng': lng},
    contentType: "application/json; charset=utf-8",
-   dataType: "html",
-   success: function (data) {
-     const doc = $($.parseHTML(data)).find("#coords");
-     console.log("here" + doc);
+   dataType: "json",
+   success: function (result) {
+     const address = result.data["display_name"];
+     document.getElementById("destination_start_location").value = address;
    }
   });
 }

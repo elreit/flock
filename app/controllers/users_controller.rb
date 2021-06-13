@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       @total_walks += walks_as_requestor
     # find walks that have buddy_destination && walk_request_status accepted
       walks_as_buddy = Walk.where(buddy_destination_id: dest.id, walk_request_status: "Accepted").count
-      @total_walks += walk_as_buddy
+      @total_walks += walks_as_buddy
     end
     # count the above 2 to get total number of past walks
   end
