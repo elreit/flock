@@ -13,8 +13,8 @@ Rails.application.routes.draw do
     member do
       get "routes"
     end
-    resources :chatrooms, only: :show do
-      resources :messages, only: :create
+    resources :chatrooms, only: [:create, :show] do
+      resources :messages, only: [:index, :create]
     end
   end
   get 'dashboard', to: 'users#dashboard'

@@ -13,7 +13,7 @@
 </div>
 
 <div>
-  <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+  <%= simple_form_for [ @chatroom, @messages ], remote: true do |f| %>
     <%= f.input :content, label: false, placeholder: "Message ##{@my_buddy.name}" %>
   <% end %>
 </div>
