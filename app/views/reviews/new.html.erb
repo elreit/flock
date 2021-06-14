@@ -4,7 +4,7 @@
       <h1> Rate your trip with <%= @my_buddy.name %> </h1>
       <%= cl_image_tag @my_buddy.photo.key, :style => "width: 150px; height: 150px; border-radius: 50%" %>
       <%= simple_form_for [@walk, @review], html: { class: "review_form" } do |f| %>
-        <%= f.input :content, label: false %>
+        <%= f.input :content %>
         <%= f.input :rating, collection: (1..5).to_a, label: false %>
       <% end %>
 
