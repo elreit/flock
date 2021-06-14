@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_09_190607) do
+ActiveRecord::Schema.define(version: 2021_06_12_142042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,17 @@ ActiveRecord::Schema.define(version: 2021_06_09_190607) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.float "rating"
+    t.string "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "reviewee_id"
+    t.bigint "user_id"
+    t.index ["reviewee_id"], name: "index_reviews_on_reviewee_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -96,6 +107,8 @@ ActiveRecord::Schema.define(version: 2021_06_09_190607) do
     t.bigint "user_destination_id"
     t.bigint "buddy_destination_id"
     t.string "walk_request_status", default: "Pending"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["buddy_destination_id"], name: "index_walks_on_buddy_destination_id"
     t.index ["user_destination_id"], name: "index_walks_on_user_destination_id"
   end
