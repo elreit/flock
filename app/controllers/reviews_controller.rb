@@ -14,6 +14,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to new_destination_path(current_user)
     else
+      flash[:alert] = "Please try again!"
       render :new
     end
   end
@@ -21,7 +22,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:rating, :content, :reviewee_id)
+    params.require(:review).permit(:rating, :content, :reviewee_id, :user_id)
   end
 
   def select_other_user
