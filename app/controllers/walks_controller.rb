@@ -10,8 +10,12 @@ class WalksController < ApplicationController
 
   def show
     @walk = Walk.find(params[:id])
+    # if I send the request
     my_buddy_destination = Destination.where(id: @walk.buddy_destination_id).last
     @my_buddy = User.find(my_buddy_destination.user_id)
+    # if I receive the request
+    requester_destination = Destination.where(id: @walk.user_destination_id).last
+    @requester = User.find(requester_destination.user_id)
     @meet_point_lng = @walk.longitude
     @meet_point_lat = @walk.latitude
     @my_destination = Destination.where(id: @walk.user_destination_id).last
@@ -37,6 +41,12 @@ class WalksController < ApplicationController
     buddy_dest_id = Destination.find(@walk.buddy_destination_id).end_location_id
     buddy_end_location = Location.find(buddy_dest_id)
     @buddy_coords = "#{buddy_end_location.longitude}, #{buddy_end_location.latitude}"
+  end
+
+  def destroy
+    @walk = Walk.find(params[:id])
+    @walk.destroy
+    redirect_to dashboard_path(current_user)
   end
 
   private

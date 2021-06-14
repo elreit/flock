@@ -1,8 +1,6 @@
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-// https://api.mapbox.com/optimized-trips/v1/mapbox/walking/13.388860,52.517037;13.397634,52.529407;13.418555,52.523215?source=first&access_token=pk.eyJ1IjoibWFpaGciLCJhIjoiY2ttY2g0aGhlMXc5ZzJvbGF2Z25qNjRzOSJ9.3ZTylnTR02csNdf9Sb4_Dw"
-
 const initDestinationMap = () => {
   const mapElement = document.getElementById('destinationmap');
   if (mapElement) {
@@ -22,7 +20,7 @@ const initDestinationMap = () => {
       container: 'destinationmap',
       style: 'mapbox://styles/mapbox/streets-v10',
       center: meetPoint,
-      zoom: 13
+      zoom: 15
     });
 
     destinationMap.on('load', function() {

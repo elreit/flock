@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
   end
   get "coords", to: 'destinations#get_user_coords', as: :coords
-  resources :walks, only: [:create, :show, :update] do
+  resources :walks, only: [:create, :show, :update, :destroy] do
     resources :reviews, only: [:new,:create]
     member do
       get "routes"
@@ -26,5 +26,3 @@ end
 #   end
 #   get 'dashboard', to: 'users#dashboard'
 # end
-
-
