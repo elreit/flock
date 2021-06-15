@@ -1,6 +1,6 @@
-var cocktailId = '<%= @cocktail.id%>'
-function toggleLikeButton(cocktailId, innerHTML) {
-  let likeButton = document.querySelector(`.like-icon[data-id='${cocktailId}']`)
+var walkId = '<%= @cocktail.id%>'
+function toggleLikeButton(walkId, innerHTML) {
+  let likeButton = document.querySelector(`.like-icon[data-id='${walkId}']`)
   likeButton.classList.toggle('red');
 }
-toggleLikeButton(cocktailId);
+toggleLikeButton(walkId);
