@@ -9,6 +9,7 @@ class DestinationsController < ApplicationController
   def get_user_coords
     @destination = Destination.new
     @location = Location.new
+    @home = User.find(current_user.id).address
     lat = params[:lat].to_f
     lng = params[:lng].to_f
     @current_location = Geocoder.search([lat, lng]).first

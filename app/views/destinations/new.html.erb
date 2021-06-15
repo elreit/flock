@@ -4,7 +4,7 @@
       <%= f.input :start_location, :label => 'Walk starting point'%>
       <%= image_tag 'Icons/052-Compass.png', alt:"Locate icon", width: "20px", height: "20px" %> <a href ="#" id = "find-me" style="color: white; text-decoration: underline;">Use current location</a>
       <%= f.input :end_location, :label => 'End'%>
-      <%= image_tag 'Icons/522-Home.png', alt:"Locate icon", width: "20px", height: "20px" %> <span id = "home-address" data-home = "<%= @home %>" style="color: white; text-decoration: underline;">Home</span>
+      <%= image_tag 'Icons/522-Home.png', alt:"Locate icon", width: "20px", height: "20px" %> <span id="home-address" data-home="<%= @home %>" style="color: white; text-decoration: underline;">Home</span>
     </div>
     <div class="align-items-center">
       <%= f.submit "Find your Buddy!", class: "btn", :style => "background: #FD5C65; color: white; padding-top: 12px; padding-bottom: 12px;margin-top:10px;" %>

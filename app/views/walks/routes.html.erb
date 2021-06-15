@@ -5,13 +5,13 @@
     <div id="destinationmap"
     style="width: 380px; height: 400px;"
      data-meet-point="<%= @meet_point %>"
-     data-user-end="<%= @user_coords %>"
-     data-buddy-end="<%= @buddy_coords %>"
+     data-first-end="<%= @end_first %>"
+     data-second-end="<%= @end_sec %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
      </div>
-    <div id="instructions"></div>
+    <div id="instructions" style="width: 380px;"></div>
 
-  <p class="btn btn-primary" align="center">Share your location</p>
-  <p class="btn btn-warning" align="center">I've arrived</p>
+  <p class="btn" align="center" style = "background: #FD5C65; color: white; padding-top: 5px; padding-bottom: 5px;margin-top:5px;font-size: 12px;">Share your location</p>
+  <p class="btn" align="center" style="background: #FD5C65; color: white; padding-top: 5px; padding-bottom: 5px;margin-top:5px;font-size: 12px;">I've arrived</p>
 
 </div>
