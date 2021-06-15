@@ -1,4 +1,16 @@
 class WalksController < ApplicationController
+  before_action :authenticate_user!, only: :toggle_favorite
+
+  def toggle_favorite
+    @walk = Walk.find_by(id: params[:id])
+    current_user.favorited?(@walk) ? current_user.unfavorite(@walk) : current_user.favorite(@walk)
+  end
+
+  def index
+    @walks = Walk.all
+    @favorite_walks = current_user.favorited_by_type('Walk')
+  end
+
   def create
     @walk = Walk.new(walk_params)
     @walk.pin = Faker::Code.nric

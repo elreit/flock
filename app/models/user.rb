@@ -9,4 +9,6 @@ class User < ApplicationRecord
   validates_presence_of :photo
   validates :name, :description, :emergency_contact_name, :emergency_contact_number, presence: true
   validates :emergency_contact_number, format: { with: /\A(?:\+?\d{1,3}\s*-?)?\(?(?:\d{3})?\)?[- ]?\d{3}[- ]?\d{4}\z/, message: "Please enter a valid phone number"}
+
+  acts_as_favoritor
 end

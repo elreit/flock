@@ -11,19 +11,10 @@ Rails.application.routes.draw do
   resources :walks, only: [:create, :show, :update] do
     resources :reviews, only: [:new,:create]
     member do
-      get "routes"
+      post 'toggle_favorite', to: "walks#toggle_favorite"
     end
   end
   get 'dashboard', to: 'users#dashboard'
 end
-
-#   resources :walks, only: [:create, :show, :update] do
-#     resources :reviews, only: [:new,:create]
-#     member do
-#       post 'toggle_favorite', to: "walks#toggle_favorite"
-#     end
-#   end
-#   get 'dashboard', to: 'users#dashboard'
-# end
 
 
