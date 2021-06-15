@@ -48,3 +48,7 @@ document.addEventListener('turbolinks:load', () => {
   initDestinationMap();
   initGetHomeAddress();
 })
+
+import { initStarRating } from '../plugins/init_star_rating';
+
+initStarRating();
