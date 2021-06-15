@@ -46,3 +46,7 @@ document.addEventListener('turbolinks:load', () => {
   initRouteMap();
   initDestinationMap();
 })
+
+import { initStarRating } from '../plugins/init_star_rating';
+
+initStarRating();
