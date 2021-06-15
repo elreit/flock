@@ -1,0 +1,6 @@
+var walkId = '<%= @walk.id%>'
+function toggleLikeButton(walkId, innerHTML) {
+  let likeButton = document.querySelector(`.like-icon[data-id='${walkId}']`)
+  likeButton.classList.toggle('red');
+}
+toggleLikeButton(walkId);

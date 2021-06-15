@@ -11,11 +11,13 @@ class ReviewsController < ApplicationController
     select_other_user
     @review.user_id = current_user.id
     @review.reviewee_id = @my_buddy.id
+    @review.compliments = params[:review][:compliment_ids].reject(&:blank?).map do |c|
+      Compliment.new(content:c)
+      end
     if @review.save
       redirect_to new_destination_path(current_user)
     else
-      flash[:alert] = "Please try again!"
-      render :new
+      render :new, alert: "Please try again!"
     end
   end
 
