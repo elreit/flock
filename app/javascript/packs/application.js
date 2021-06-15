@@ -38,6 +38,7 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initFetchCurrentPosition } from '../plugins/init_getcurrentlocation';
 import { initRouteMap } from '../plugins/init_routemap';
 import { initDestinationMap } from '../plugins/init_destinationmap';
+import { initGetHomeAddress } from '../plugins/init_gethomeaddress';
 
 document.addEventListener('turbolinks:load', () => {
   initFetchCurrentPosition();
@@ -45,6 +46,7 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   initRouteMap();
   initDestinationMap();
+  initGetHomeAddress();
 })
 
 import { initStarRating } from '../plugins/init_star_rating';

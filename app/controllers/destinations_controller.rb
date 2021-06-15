@@ -1,7 +1,22 @@
 class DestinationsController < ApplicationController
+
   def new
     @destination = Destination.new
     @location = Location.new
+    @home = User.find(current_user.id).address
+  end
+
+  def get_user_coords
+    @destination = Destination.new
+    @location = Location.new
+    @home = User.find(current_user.id).address
+    lat = params[:lat].to_f
+    lng = params[:lng].to_f
+    @current_location = Geocoder.search([lat, lng]).first
+    respond_to do |format|
+      format.json {render json: @current_location.to_json, status: 200}
+      format.html
+    end
   end
 
   def create

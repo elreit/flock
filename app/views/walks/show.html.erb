@@ -1,21 +1,22 @@
 <div class="container" class="tab-content" align="center">
 
   <div class="tab-pane fade in show active" id="meeting-point">
-    <h2>You will meet <%= @my_buddy.name %>...</h2>
+    <% if current_user.name == @my_buddy.name %>
+      <h2>You will meet <%= @requester.name %>...</h2>
+    <% else %>
+      <h2>You will meet <%= @my_buddy.name %>...</h2>
+    <% end %>
     <h3 class="text-center">Show your pin: <%= @walk.pin %></h3>
-    <h3 class="btn text-center" id="tab-dashboard"><%= link_to "Let's flock!", routes_walk_path(@walk) %></h3>
-
-    <div class = "d-flex justify-content-between">
+    <h3 class="btn text-center" id="tab-dashboard"><%= link_to "Let's flock!🕊", routes_walk_path(@walk), :style => "color: white;" %></h3>
 
     <div id="routemap"
-     style="width: 800px; height: 600px;"
+     style="width: 380px; height: 400px;"
      data-meet-lng="<%= @meet_point_lng %>"
      data-meet-lat="<%= @meet_point_lat %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
      </div>
 
-    <div id="instructions"></div>
-  </div>
+    <div id="instructions" style="width: 380px;"></div>
   </div>
 
   <div class="tab-pane fade" id="messaging">
