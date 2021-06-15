@@ -1,6 +1,8 @@
 class Review < ApplicationRecord
-  belongs_to :user, class_name: 'User'
+  belongs_to :user
   belongs_to :reviewee, class_name: 'User'
 
-  validates_presence_of :rating, :content
+  has_many :compliments
+
+  validates_presence_of :rating
 end
