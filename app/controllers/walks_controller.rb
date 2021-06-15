@@ -39,6 +39,10 @@ class WalksController < ApplicationController
     @buddy_coords = "#{buddy_end_location.longitude}, #{buddy_end_location.latitude}"
   end
 
+  def chatroom
+    @chatroom = Chatroom.where(name: "chatroom1")
+  end
+
   private
 
   def walk_params
