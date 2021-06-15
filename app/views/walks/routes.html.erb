@@ -14,11 +14,11 @@
     <div id="instructions"></div>
   </div>
 
-
-  <div class = 'whatsapp link'>
-    <a href="https://wa.me/text=Hey%21%20I%20have%20started%20my%20walk%20home%20with%20Flock">Share your location <img src="001-Whatsapp.png" alt="Whatsapp"></a>
-    <!-- <p class="btn btn-primary" align="center">Share your location</p> -->
+<!-- This is only for a user who has sent a walk request to a buddy. Not a buddy receiving and accepting the walk request -->
+  <div class = 'whatsapp chat' >
+    <a href="https://api.whatsapp.com/send?phone='<%= current_user.emergency_contact_number %>'&text='Hi <%= current_user.emergency_contact_name %>! I am using Flock to walk from <%= @meet %> to <%= @end %> with <%= @buddy_name %>'"> <p class="btn btn-warning" align="center"> Share your live location via <img src="https://i.imgur.com/bEwFKW7.png" width=30px, height=30px, alt="Whatsapp icon"> </a>
+    <p class="btn btn-warning" align="center" >I've arrived</p>
   </div>
-  <p class="btn btn-warning" align="center">I've arrived</p>
 
 </div>
+
