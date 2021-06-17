@@ -15,9 +15,14 @@
 
 <!-- This is only for a user who has sent a walk request to a buddy. Not a buddy receiving and accepting the walk request -->
   <div class = 'whatsapp chat' >
-    <a href="https://api.whatsapp.com/send?phone='<%= current_user.emergency_contact_number %>'&text='Hi <%= current_user.emergency_contact_name %>! I am using Flock to walk from <%= @meet %> to <%= @end %> with <%= @buddy_name %>'"> <p class="btn btn-warning" align="center"> Share your live location via <img src="https://i.imgur.com/bEwFKW7.png" width=30px, height=30px, alt="Whatsapp icon"> </a>
-    <p class="btn btn-warning" align="center" >I've arrived</p>
+    <a href="https://api.whatsapp.com/send?phone='<%= current_user.emergency_contact_number %>'&text='Hi <%= current_user.emergency_contact_name %>! I am using Flock to walk from <%= @meet %> to <%= @end %> with <%= @buddy_name %>'" target="_blank" rel="noopener noreferrer"> <p class="btn btn-warning" align="center"> Share your live location via <img src="https://i.imgur.com/bEwFKW7.png" width=30px, height=30px, alt="Whatsapp icon"></a>
+    <!-- <a id="myId"> <p class="btn btn-warning" align="center"> I've arrived </a> -->
+    <a href="https://api.whatsapp.com/send?phone='<%= current_user.emergency_contact_number %>'&text='Hi <%= current_user.emergency_contact_name %>! I have arrived at <%= @end %>'" target="_blank" rel="noopener noreferrer"> <p class="btn btn-warning" align="center"> I've arrived <img src="https://i.imgur.com/bEwFKW7.png" width=30px, height=30px, alt="Whatsapp icon"></a>
   </div>
+<!--      <a href="https://api.whatsapp.com/send?phone='<%= current_user.emergency_contact_number %>'&text='Hi <%= current_user.emergency_contact_name %>! I have arrived at <%= @end %>'" target="_blank" rel="noopener noreferrer"> <p class="btn btn-warning" align="center"> I've arrived <img src="https://i.imgur.com/bEwFKW7.png" width=30px, height=30px, alt="Whatsapp icon"></a>
+
+   -->
+ <!--  <%= link_to "Test", new_walk_review_path(@walk) %>
 
 </div>
 
