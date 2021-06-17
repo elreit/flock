@@ -1,8 +1,19 @@
 function success(pos) {
   const crd = pos.coords;
-  console.log('Your current position is:');
-  console.log(`Latitude : ${crd.latitude}`);
-  console.log(`Longitude: ${crd.longitude}`);
+  const lat = crd.latitude;
+  const lng = crd.longitude;
+
+  $.ajax({
+   type: "GET",
+   url: '/coords',
+   data: {'lat': lat, 'lng': lng},
+   contentType: "application/json; charset=utf-8",
+   dataType: "json",
+   success: function (result) {
+     const address = result.data["display_name"];
+     document.getElementById("destination_start_location").value = address;
+   }
+  });
 }
 
 function error(err) {

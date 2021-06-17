@@ -10,8 +10,12 @@ class WalksController < ApplicationController
 
   def show
     @walk = Walk.find(params[:id])
+    # if I send the request
     my_buddy_destination = Destination.where(id: @walk.buddy_destination_id).last
     @my_buddy = User.find(my_buddy_destination.user_id)
+    # if I receive the request
+    requester_destination = Destination.where(id: @walk.user_destination_id).last
+    @requester = User.find(requester_destination.user_id)
     @meet_point_lng = @walk.longitude
     @meet_point_lat = @walk.latitude
     @my_destination = Destination.where(id: @walk.user_destination_id).last
@@ -29,14 +33,43 @@ class WalksController < ApplicationController
     @walk = Walk.find(params[:id])
     # Meeting point lat lng
     @meet_point = "#{@walk.longitude}, #{@walk.latitude}"
+    meet_arr = [@walk.latitude, @walk.longitude]
+    # whatsapp
+    @meet = @walk.meeting_point
     # User destination lat lng
     user_dest_id = Destination.find(@walk.user_destination_id).end_location_id
     user_end_location = Location.find(user_dest_id)
+    @end = user_end_location.address
     @user_coords = "#{user_end_location.longitude}, #{user_end_location.latitude}"
+    user_arr = [user_end_location.latitude, user_end_location.longitude]
     # Buddy destination lat lng
     buddy_dest_id = Destination.find(@walk.buddy_destination_id).end_location_id
     buddy_end_location = Location.find(buddy_dest_id)
     @buddy_coords = "#{buddy_end_location.longitude}, #{buddy_end_location.latitude}"
+    buddy_arr = [buddy_end_location.latitude, buddy_end_location.longitude]
+    # whatsapp
+    buddy = Destination.find(@walk.buddy_destination_id)
+    @buddy_name = buddy.user.name
+    # Calculate optimal routes
+    meet_to_user_end = Geocoder::Calculations.distance_between(meet_arr, user_arr)
+    meet_to_buddy_end = Geocoder::Calculations.distance_between(meet_arr, buddy_arr)
+    if meet_to_user_end <= meet_to_buddy_end
+      @end_first = @user_coords
+      @end_sec = @buddy_coords
+    else
+      @end_first = @buddy_coords
+      @end_sec = @user_coords
+    end
+  end
+
+  def destroy
+    @walk = Walk.find(params[:id])
+    @walk.destroy
+    redirect_to dashboard_path(current_user)
+  end
+
+  def chatroom
+    @chatroom = Chatroom.where(name: "chatroom1")
   end
 
   private

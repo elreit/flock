@@ -36,7 +36,8 @@ const fitMapToMarkers = (map, markers) => {
   markers.forEach(marker => bounds.extend([marker.lng, marker.lat]));
   map.fitBounds(bounds, {
     padding: 70,
-    maxZoom: 15
+    maxZoom: 15,
+    duration: 0
   });
 };
 
@@ -48,9 +49,19 @@ const initMapbox = () => {
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
-    // getRoute(mapElement);
   }
 
+  const buddyTabMap = document.getElementById('mapbuddy');
+  if (buddyTabMap) {
+    mapboxgl.accessToken = buddyTabMap.dataset.mapboxApiKey;
+    const buddyMap = new mapboxgl.Map({
+      container: 'mapbuddy',
+      style: 'mapbox://styles/mapbox/streets-v10'
+    });
+    const buddyMarker = JSON.parse(buddyTabMap.dataset.marker);
+    addMarkersToMap(buddyMap, buddyMarker);
+    fitMapToMarkers(buddyMap, buddyMarker);
+  }
 };
 
 export { initMapbox };
