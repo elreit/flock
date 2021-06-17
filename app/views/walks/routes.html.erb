@@ -2,9 +2,9 @@
   <h4>Let's walk home...</h4>
   <!-- This is only for a user who has sent a walk request to a buddy. Not a buddy receiving and accepting the walk request -->
     <div class = 'whatsapp chat'>
-      <a href="https://api.whatsapp.com/send?phone='<%= current_user.emergency_contact_number %>'&text='Hi <%= current_user.emergency_contact_name %>! I am using Flock to walk from <%= @meet %> to <%= @end %> with <%= @buddy_name %>'" target="_blank" rel="noopener noreferrer"> <p class="btn btn-warning" align="center"> Share your live location via <img src="https://i.imgur.com/bEwFKW7.png" width=30px, height=30px, alt="Whatsapp icon"> </a>
+      <a href="https://api.whatsapp.com/send?phone='<%= current_user.emergency_contact_number %>'&text='Hi <%= current_user.emergency_contact_name %>! I am using Flock to walk from <%= @meet %> to <%= @end %> with <%= @buddy_name %>'" target="_blank" rel="noopener noreferrer" style ="color: white;"> <p class="btn" align="center" style="background: #FD5C65; color: white; padding-top: 5px; padding-bottom: 5px;margin-top:5px;font-size: 12px;"> Share your live location via <img src="https://i.imgur.com/bEwFKW7.png" width=20px, height=20px, alt="Whatsapp icon"> </a>
       <p class="btn btn-warning" align="center" id="arrived" data-number="<%= current_user.emergency_contact_number %>" data-text= "<%= current_user.name %> has arrived home safe and sound!" >I've arrived</p>
-      <button id="sweet-alert-demo" class="btn btn-primary">Click me!</button>
+      <button id="sweet-alert-demo" class="btn" style="background: #FD5C65; color: white; padding-top: 5px; padding-bottom: 5px;margin-top:5px;font-size: 12px;">I've arrived!</button>
       <%= link_to "", new_walk_review_path(@walk), id: "reviewlink", class: "hidden" %>
       <a href="https://api.whatsapp.com/send?phone='<%= current_user.emergency_contact_number %>'&text='<%= current_user.name %> has arrived home safe and sound!'" id = "here" target="_blank" rel="noopener noreferrer">
     </div>

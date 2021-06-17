@@ -78,11 +78,15 @@
         <% when "Cancelled" %>
           <p id = "text-dashboard"><%= @walk_request_received.walk_request_status %></p>
         <% when "Confirmed" %>
+          <% if @my_walk_request && @my_walk_request.walk_request_status == "Confirmed" %>
+          <div><p id="text-dashboard">You can only have 1 buddy at a time. Cancel your request to modify this request</p></div>
+          <% else %>
           <div>
             <p id = "text-dashboard"><%= @walk_request_received.walk_request_status %></p>
             <p id = "text-dashboard">PIN: <%= @walk_request_received.pin %></p>
             <p class="button"><%= link_to 'Cancel', walk_path(@walk_request_received, format: 'Cancelled'), method: 'PATCH',:style => "color: #FD5C65;" %></p>
           </div>
+          <% end %>
         <% else %>
           <p id = "text-dashboard"><%= @walk_request_received.walk_request_status %></p>
         <% end %>

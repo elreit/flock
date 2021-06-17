@@ -72,6 +72,7 @@ document.addEventListener('turbolinks:load', () => {
           var number = arrivedButton.dataset.number;
           var text = arrivedButton.dataset.text;
           arrivedButton.click();
+          window.location.replace("https://kitt.lewagon.com/products/6579");
         }
       break;
     }

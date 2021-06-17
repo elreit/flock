@@ -18,7 +18,8 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <%= yield %>
-
+    <div class="<%= controller_name %> <%= action_name %>">
+      <%= yield %>
+    </div>
   </body>
 </html>
