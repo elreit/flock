@@ -1,33 +1,37 @@
-<h3 align="center">Hello <%= current_user.name %></h3>
+<h4 align="center">Hello <%= current_user.name %></h4>
 
 <div class="container" class="tab-content" align="center">
 
 <!-- Requests I have sent -->
   <div class="tab-pane fade show active" id="request">
     <% if @my_walk_request %>
-    <h4>Requests sent</h4>
+    <h5>Requests sent</h5>
   <!-- map -->
     <div id="map"
      class = "col-12"
-     style="height: 200px;"
+     style="width: 380px;height: 150px;"
      data-markers="<%= @markers.to_json %>"
      data-meet-point="<%= @meet_point %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   <!-- content -->
     <div class="card mt-2" style="width: 380px;height: 300px;">
-      <div class="card-body d-flex justify-content-between align-items-center">
-        <%= cl_image_tag @my_buddy.photo.key, :style => "width: 100px; height: 100px;" %>
+      <div class="card-body d-flex justify-content-between">
+        <%= cl_image_tag @my_buddy.photo.key, :style => "width: 100px; height: 100px; border-radius: 50%;" %>
         <div>
           <p id = "text-dashboard">Buddy: <%= @my_buddy.name %></p>
           <p id="text-dashboard">Meeting point: <%= @my_walk_request.meeting_point %></p>
-          <%= link_to 'Getting there', walk_path(@my_walk_request), class: "btn", :style => "background: #FD5C65; color: white; padding-top: 5px; padding-bottom: 5px;margin-top:5px;font-size: 12px;" %>
+          <% if @my_walk_request.walk_request_status == "Confirmed" %>
+            <%= link_to 'Getting there', walk_path(@my_walk_request), class: "btn", :style => "background: #FD5C65; color: white; padding-top: 5px; padding-bottom: 5px;margin-top:5px;font-size: 12px;" %>
+          <% end %>
           <%= link_to 'Cancel request', walk_path(@my_walk_request), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn", :style => "color: #FD5C65; padding-top: 5px; padding-bottom: 5px;margin-top:5px;font-size:12px;"%>
         </div>
+        <div>
         <p id = "text-dashboard">Request status: <%= @my_walk_request.walk_request_status %></p>
         <% if @my_walk_request.walk_request_status == "Confirmed" %>
-          <p><%= @my_walk_request.pin %></p>
+          <p id = "text-dashboard"><%= @my_walk_request.pin %></p>
         <% end %>
+        </div>
       </div>
     </div>
     <% else %>
@@ -42,27 +46,35 @@
   <div class="tab-pane fade" id="incoming">
     <% if @walk_request_received %>
     <!-- map -->
-    <h4>Requests received</h4>
+    <h5>Requests received</h5>
     <div id="mapbuddy"
      class = "col-12"
-     style="height: 200px;"
+     style="width: 380px;height: 150px;"
      data-marker ="<%= @buddymarkers.to_json %>"
      data-buddy-meet-point="<%= @buddy_meet_point %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
     <!-- content -->
-    <div class="card mt-1" style="width: 380px;height: 300px;">
-      <div class="card-body d-flex justify-content-center align-items-center">
+    <div class="card mt-2" style="width: 380px;height: 300px;">
+      <div class="card-body d-flex justify-content-center">
         <%= cl_image_tag @requester.photo.key, :style => "width: 80px; height: 80px;border-radius:50%;" %>
         <div>
           <p id = "text-dashboard">Buddy: <%= @requester.name %> </p>
           <p id = "text-dashboard">Meeting point: <%= @walk_request_received.meeting_point %></p>
-          <%= link_to 'Getting there', walk_path(@walk_request_received), class: "btn", :style => "background: #FD5C65; color: white; padding-top: 5px; padding-bottom: 5px;margin-top:5px;font-size: 12px;" %>
+          <% if @walk_request_received.walk_request_status == "Confirmed" %>
+            <%= link_to 'Getting there', walk_path(@walk_request_received), class: "btn", :style => "background: #FD5C65; color: white; padding-top: 5px; padding-bottom: 5px;margin-top:5px;font-size: 12px;" %>
+          <% end %>
         </div>
         <% case @walk_request_received.walk_request_status %>
         <% when "Pending" %>
-          <p class="btn"><%= link_to 'Accept', walk_path(@walk_request_received, format: 'Confirmed'), method: 'PATCH', :style => "color: #FD5C65;" %></p>
-          <p class="btn"><%= link_to 'Decline', walk_path(@walk_request_received, format: 'Declined'), method: 'PATCH', :style => "color: #FD5C65;"%></p>
+          <% if @my_walk_request && @my_walk_request.walk_request_status == "Confirmed" %>
+            <div><p id="text-dashboard">You can only have 1 buddy at a time. Cancel your request to modify this request</p></div>
+          <% else %>
+            <div>
+              <p class="btn" id="text-dashboard"><%= link_to 'Accept', walk_path(@walk_request_received, format: 'Confirmed'), method: 'PATCH', :style => "color: #FD5C65;" %></p>
+              <p class="btn" id = "text-dashboard"><%= link_to 'Decline', walk_path(@walk_request_received, format: 'Declined'), method: 'PATCH', data: {confirm: 'Are you sure?'}, :style => "color: #FD5C65;"%></p>
+            </div>
+          <% end %>
         <% when "Cancelled" %>
           <p id = "text-dashboard"><%= @walk_request_received.walk_request_status %></p>
         <% when "Confirmed" %>
@@ -89,12 +101,12 @@
 
 <div class="dashboard-tabs">
   <ul class="nav nav-pills justify-content-center">
-    <li class="nav-item">
+    <li class="nav-item" style="position: sticky;">
       <a class="nav-link active" data-toggle="tab" href="#request">
         <img class="icon-person" src="https://i.imgur.com/gNYUbFp.png" title="source: imgur.com">
       </a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" style="position: sticky;">
       <a class="nav-link" data-toggle="tab" href="#incoming">
         <img class="icon-letter" src="https://i.imgur.com/giHPsCH.png" title="source: imgur.com">
         <span class="badge">3</span>

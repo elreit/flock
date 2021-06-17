@@ -4,7 +4,7 @@ class WalksController < ApplicationController
     @walk.pin = Faker::Code.nric
     @walk.user_destination_id = Destination.where(user_id: current_user.id).last.id
     if @walk.save
-      redirect_to dashboard_path(current_user)
+      redirect_to dashboard_path
     end
   end
 
@@ -39,6 +39,7 @@ class WalksController < ApplicationController
     # User destination lat lng
     user_dest_id = Destination.find(@walk.user_destination_id).end_location_id
     user_end_location = Location.find(user_dest_id)
+    @user_name = Destination.find(@walk.user_destination_id).user.name
     @end = user_end_location.address
     @user_coords = "#{user_end_location.longitude}, #{user_end_location.latitude}"
     user_arr = [user_end_location.latitude, user_end_location.longitude]
@@ -56,9 +57,11 @@ class WalksController < ApplicationController
     if meet_to_user_end <= meet_to_buddy_end
       @end_first = @user_coords
       @end_sec = @buddy_coords
+      @user_steps = @user_name
     else
       @end_first = @buddy_coords
       @end_sec = @user_coords
+      @user_steps = @buddy_name
     end
   end
 

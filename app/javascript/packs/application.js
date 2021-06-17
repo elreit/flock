@@ -39,6 +39,10 @@ import { initFetchCurrentPosition } from '../plugins/init_getcurrentlocation';
 import { initRouteMap } from '../plugins/init_routemap';
 import { initDestinationMap } from '../plugins/init_destinationmap';
 import { initGetHomeAddress } from '../plugins/init_gethomeaddress';
+import { initSendWhatsApp } from '../plugins/init_sendwhatsapp';
+import { initStarRating } from '../plugins/init_star_rating';
+import { initSweetalert } from '../plugins/init_sweetalert';
+
 
 document.addEventListener('turbolinks:load', () => {
   initFetchCurrentPosition();
@@ -47,8 +51,29 @@ document.addEventListener('turbolinks:load', () => {
   initRouteMap();
   initDestinationMap();
   initGetHomeAddress();
+  initSendWhatsApp();
+  initStarRating();
+  initSweetalert('sweet-alert-demo', {
+    title: "Hooray you are home safe and sound!",
+    icon: "success",
+    buttons: {
+     review: "Review your buddy",
+     message: "Send a WhatsApp message"},
+  }, (value) => {
+    switch(value) {
+      case "review":
+        const reviewLink = document.getElementById('reviewlink');
+        reviewLink.click();
+      break;
+
+      case "message":
+        const arrivedButton = document.getElementById('here');
+        if (arrivedButton) {
+          var number = arrivedButton.dataset.number;
+          var text = arrivedButton.dataset.text;
+          arrivedButton.click();
+        }
+      break;
+    }
+  });
 })
-
-import { initStarRating } from '../plugins/init_star_rating';
-
-initStarRating();
