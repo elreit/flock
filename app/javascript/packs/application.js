@@ -39,7 +39,6 @@ import { initFetchCurrentPosition } from '../plugins/init_getcurrentlocation';
 import { initRouteMap } from '../plugins/init_routemap';
 import { initDestinationMap } from '../plugins/init_destinationmap';
 import { initGetHomeAddress } from '../plugins/init_gethomeaddress';
-import { initSendWhatsApp } from '../plugins/init_sendwhatsapp';
 import { initStarRating } from '../plugins/init_star_rating';
 import { initSweetalert } from '../plugins/init_sweetalert';
 
@@ -51,14 +50,13 @@ document.addEventListener('turbolinks:load', () => {
   initRouteMap();
   initDestinationMap();
   initGetHomeAddress();
-  initSendWhatsApp();
   initStarRating();
-  initSweetalert('sweet-alert-demo', {
+  initSweetalert('arrived', {
     title: "Hooray you are home safe and sound!",
     icon: "success",
     buttons: {
      review: "Review your buddy",
-     message: "Send a WhatsApp message"},
+     message: "Tell your friend you are safe"},
   }, (value) => {
     switch(value) {
       case "review":
@@ -67,12 +65,11 @@ document.addEventListener('turbolinks:load', () => {
       break;
 
       case "message":
-        const arrivedButton = document.getElementById('here');
-        if (arrivedButton) {
-          var number = arrivedButton.dataset.number;
-          var text = arrivedButton.dataset.text;
-          arrivedButton.click();
-          window.location.replace("https://kitt.lewagon.com/products/6579");
+        const sendMessage = document.getElementById('whatsapplink');
+        const walkId = sendMessage.dataset.walkid;
+        if (sendMessage) {
+          sendMessage.click();
+          window.location.replace(`https://www.flock525.club/walks/8/reviews/new`);
         }
       break;
     }

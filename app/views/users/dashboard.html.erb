@@ -24,7 +24,7 @@
           <% if @my_walk_request.walk_request_status == "Confirmed" %>
             <%= link_to 'Getting there', walk_path(@my_walk_request), class: "btn", :style => "background: #FD5C65; color: white; padding-top: 5px; padding-bottom: 5px;margin-top:5px;font-size: 12px;" %>
           <% end %>
-          <%= link_to 'Cancel request', walk_path(@my_walk_request), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn", :style => "color: #FD5C65; padding-top: 5px; padding-bottom: 5px;margin-top:5px;font-size:12px;"%>
+            <%= link_to 'Cancel request', walk_path(@my_walk_request), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn", :style => "color: #FD5C65; padding-top: 5px; padding-bottom: 5px;margin-top:5px;font-size:12px;"%>
         </div>
         <div>
         <p id = "text-dashboard">Request status: <%= @my_walk_request.walk_request_status %></p>
@@ -79,7 +79,7 @@
           <p id = "text-dashboard"><%= @walk_request_received.walk_request_status %></p>
         <% when "Confirmed" %>
           <% if @my_walk_request && @my_walk_request.walk_request_status == "Confirmed" %>
-          <div><p id="text-dashboard">You can only have 1 buddy at a time. Cancel your request to modify this request</p></div>
+            <div><p id="text-dashboard">You can only have 1 buddy at a time. Cancel your request to modify this request</p></div>
           <% else %>
           <div>
             <p id = "text-dashboard"><%= @walk_request_received.walk_request_status %></p>
