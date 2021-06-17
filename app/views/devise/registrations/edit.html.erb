@@ -21,16 +21,20 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+    <%= f.input :address,
+                required: false,
+                autofocus: true,
+                input_html: { autocomplete: "new-address" }%>
     <%= f.input :emergency_contact_name,
-                required: true,
+                required: false,
                 autofocus: true,
                 input_html: { autocomplete: "new-emergency-contact-name" }%>
     <%= f.input :emergency_contact_number,
-                required: true,
+                required: false,
                 autofocus: true,
                 input_html: { autocomplete: "new-emergency-contact-number" }%>
     <%= f.input :description,
-                required: true,
+                required: false,
                 autofocus: true,
                 input_html: { autocomplete: "new-description" },
                 label: "New bio description"%>
@@ -43,7 +47,7 @@
 
 <br />
 
-<h3>Leaving Flock... 🥺 </h3>
+<h4>Leaving Flock... 🥺 </h4>
 
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
