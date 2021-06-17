@@ -71,6 +71,10 @@ class WalksController < ApplicationController
     redirect_to dashboard_path(current_user)
   end
 
+  def chatroom
+    @chatroom = Chatroom.where(name: "chatroom1")
+  end
+
   private
 
   def walk_params
