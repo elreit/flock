@@ -38,6 +38,7 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initFetchCurrentPosition } from '../plugins/init_getcurrentlocation';
 import { initRouteMap } from '../plugins/init_routemap';
 import { initDestinationMap } from '../plugins/init_destinationmap';
+import { initChatroomCable } from '../channels/chatroom_channel';
 import { initGetHomeAddress } from '../plugins/init_gethomeaddress';
 
 document.addEventListener('turbolinks:load', () => {
@@ -46,6 +47,7 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   initRouteMap();
   initDestinationMap();
+  initChatroomCable();
   initGetHomeAddress();
 })
 

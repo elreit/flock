@@ -9,10 +9,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :description, :emergency_contact_name, :emergency_contact_number, :address])
   end
 
+  # run in Terminal: heroku config:set DOMAIN=www.my_product.com
+
 # For meta tags in heroku production
   def default_url_options
   { host: ENV["flock525.club"] || "localhost:3000" }
   end
-
 end
 

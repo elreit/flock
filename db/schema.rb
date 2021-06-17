@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2021_06_13_155702) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +36,15 @@ ActiveRecord::Schema.define(version: 2021_06_13_155702) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "walk_id", null: false
+    t.index ["walk_id"], name: "index_chatrooms_on_walk_id"
   end
 
   create_table "compliments", force: :cascade do |t|
@@ -80,6 +91,16 @@ ActiveRecord::Schema.define(version: 2021_06_13_155702) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "chatroom_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.float "rating"
     t.string "content"
@@ -103,6 +124,7 @@ ActiveRecord::Schema.define(version: 2021_06_13_155702) do
     t.string "emergency_contact_name"
     t.string "emergency_contact_number"
     t.string "name"
+    t.string "nickname"
     t.text "address"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -123,6 +145,9 @@ ActiveRecord::Schema.define(version: 2021_06_13_155702) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "chatrooms", "walks"
   add_foreign_key "compliments", "reviews"
   add_foreign_key "destinations", "users"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
 end
