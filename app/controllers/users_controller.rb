@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 
+  def favorites
+    @user = User.find(params[:user_id])
+    @favorites = @user.all_favorited
+  end
+
   def show
     @user = User.find(params[:id])
     @destination = Destination.where(user_id: params[:id]).last

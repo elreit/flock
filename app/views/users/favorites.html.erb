@@ -1,0 +1,12 @@
+<div class="container" align="center">
+  <div class="row">
+    <div class="col-xs-4">
+      <h1> Your favourite flockers </h1>
+        <%= @favorites.each do |f| %>
+          <div class="fav-card">
+            <%=  %>
+          </div>
+        <%= end %>
+    </div>
+  </div>
+</div>
