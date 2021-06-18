@@ -36,6 +36,9 @@ class UsersController < ApplicationController
         @requester = requester_destination.user
         @buddymarkers = [lat: @walk_request_received.latitude, lng: @walk_request_received.longitude]
         @buddy_meet_point = [@walk_request_received.longitude, @walk_request_received.latitude]
+        @badge = 1
+      else
+        @badge = 0
       end
     # If user has already confirmed a walk with someone, the incoming request should be declined. Or user choose.
     end

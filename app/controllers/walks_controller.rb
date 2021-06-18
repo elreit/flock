@@ -19,6 +19,11 @@ class WalksController < ApplicationController
     @meet_point_lng = @walk.longitude
     @meet_point_lat = @walk.latitude
     @my_destination = Destination.where(id: @walk.user_destination_id).last
+    chatroom = Chatroom.where(walk_id: params[:id]).last.id
+    if chatroom
+      message = Message.where(chatroom_id: chatroom).where.not(user_id: current_user.id)
+      @new_messages = message.count
+    end
   end
 
   def update

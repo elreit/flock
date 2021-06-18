@@ -71,7 +71,7 @@ document.addEventListener('turbolinks:load', () => {
         const walkId = sendMessage.dataset.walkid;
         if (sendMessage) {
           sendMessage.click();
-          window.location.replace(`https://www.flock525.club/walks/8/reviews/new`);
+          window.location.replace(`https://www.flock525.club/walks/${walkId}/reviews/new`);
         }
       break;
     }

@@ -1,3 +1,28 @@
 .walks.routes {
-  // adding your css code here
+  // share location
+  .sharebutton {
+    color: white;
+    background: #FD5C65;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top:5px;
+    font-size: 14px;
+  }
+
+  // map
+  #destinationmap {
+    width: 380px;
+    height: 400px;
+    margin-top: 10px;
+    position: sticky;
+    top: 0px;
+  }
+
+  #instructionsfirst {
+    width: 380px;
+  }
+
+  #instructionssec {
+    width: 380px;
+  }
 }
