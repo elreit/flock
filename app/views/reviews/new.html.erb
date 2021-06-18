@@ -6,7 +6,7 @@
         <%= cl_image_tag @my_buddy.photo.key, :style => "width: 150px; height: 150px; border-radius: 50%" %>
         <%= simple_form_for [@walk, @review], html: { class: "review_form" } do |f| %>
           <%= f.input :rating, collection: (1..5).to_a, label: false %>
-            <%= f.association :compliments,
+            <%= f.association :compliments, legend_tag: false,
                     as: :check_boxes,
                     input_html: { class: "tag-selector" },
                     item_wrapper_class: 'tag-item',
