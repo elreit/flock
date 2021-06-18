@@ -1,13 +1,17 @@
-<div class="container d-flex">
+<div class="destination-home" style="display: flex; justify-content: center; margin-top: 220px;">
   <%= simple_form_for :destination, url: destinations_path do |f| %>
     <div class="align-items-center" style="color: white; width: 300px;">
-      <%= f.input :start_location, :label => 'Walk starting point', :placeholder => 'Enter your address or postcode'%>
-      <%= image_tag 'Icons/052-Compass.png', alt:"Locate icon", width: "20px", height: "20px" %> <a href ="#" id = "find-me" style="color: white; text-decoration: underline;">Use current location</a>
-      <%= f.input :end_location, :label => 'End', :placeholder => 'Enter your address or postcode'%>
-      <%= image_tag 'Icons/522-Home.png', alt:"Locate icon", width: "20px", height: "20px" %> <span id="home-address" data-home="<%= @home %>" style="color: white; text-decoration: underline;">Home</span>
+      <%= f.input :start_location, label: 'Walk starting point', placeholder: 'Enter your address or postcode'%>
+      <div class="compass-icon" style="margin-top: -10px; margin-bottom: 16px;">
+        <%= image_tag 'Icons/052-Compass.png', alt:"Locate icon", width: "20px", height: "20px" %> <a href ="#" id = "find-me" style="color: white; text-decoration: underline;">Use current location</a>
+      </div>
+        <%= f.input :end_location, label: 'End', placeholder: 'Enter your address or postcode'%>
+      <div class="home-icon" style="margin-top: -10px; margin-bottom: 16px;">
+        <%= image_tag 'Icons/522-Home.png', alt:"Locate icon", width: "20px", height: "20px" %> <span id="home-address" data-home="<%= @home %>" style="color: white; text-decoration: underline;">Home</span>
+      </div>
     </div>
     <div class="align-items-center">
-      <%= f.submit "Find your Buddy!", class: "btn", :style => "background: #FD5C65; color: white; padding-top: 12px; padding-bottom: 12px;margin-top:10px;" %>
+      <%= f.submit "Find your buddy!", class: "btn btn-block", :style => "background: #FD5C65; color: white; padding-top: 12px; padding-bottom: 12px;margin-top:10px;" %>
     </div>
   <% end %>
 </div>
