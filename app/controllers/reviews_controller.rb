@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
       if @review.favorite == "1"
         current_user.favorite(@my_buddy)
       end
-      redirect_to  user_favorites_path(current_user)
+      redirect_to user_favorites_path(current_user)
     else
       render :new, alert: "Please try again!"
     end
