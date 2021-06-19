@@ -10,7 +10,7 @@
         <p class="user-info">Number of walks: <%= @total_walks %></p>
       </div>
         <p class="user-desc"><%= @user.description %></p>
-        
+
       <h4>Walk with <%= @user.name %></h4>
       <div>
         <%= simple_form_for [ @walk ] do |f| %>
@@ -21,6 +21,6 @@
       </div>
     </div>
     </div>
-
-    <%= link_to 'Back', destinations_path %>
   </div>
+
+<%= link_to 'Back', destinations_path, class: "back" %>
