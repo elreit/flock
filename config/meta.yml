@@ -1,6 +1,6 @@
 # Meta Tag
 meta_product_name: "Flock"
-meta_title: "Never walk alone"
+meta_title: "Never walk alone | Flock"
 meta_description: "Find other women near you walking a similar route, so you don't have to walk alone"
-meta_image: "cover.png" # should exist in `app/assets/images/`
+meta_image: "flock-cover.png" # should exist in `app/assets/images/`
 twitter_account: "@flock_club"   # required for Twitter Cards
