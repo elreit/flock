@@ -16,6 +16,16 @@ class UsersController < ApplicationController
       @total_walks += walks_as_buddy
     end
     # count the above 2 to get total number of past walks
+    # review
+    @reviews = Review.where(reviewee_id: @user.id)
+    sum_rating = 0
+    if @reviews
+      @reviews.each do |review|
+        sum_rating += review.rating
+      end
+    end
+
+    @avg_rating = sum_rating / @reviews.count
   end
 
   def dashboard
