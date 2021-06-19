@@ -7,5 +7,6 @@ class ChatroomsController < ApplicationController
   def show
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
+    @walk = Walk.find(@chatroom.walk_id)
   end
 end
