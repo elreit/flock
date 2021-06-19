@@ -1,6 +1,6 @@
 <div class="destination-index">
-  <h3>Results</h3>
-    <h4><%= @destinations.reject{|dest| dest.user == current_user}.count %> Flocker(s) nearby...</h4>
+  <h3 class="destination-index">Results</h3>
+    <h4 class="destination-index"><%= @destinations.reject{|dest| dest.user == current_user}.count %> Flocker(s) nearby...</h4>
       <div class="cards_container">
         <div class="cards">
           <% if @destinations %>
