@@ -23,8 +23,8 @@
     <h3 class="btn text-center" id="tab-dashboard"><%= link_to "Chat to #{@my_buddy.name}!", chatroom_path(@walk.chatroom), :style => "color: white;" %></h3>
   </div>
 
-<div class="dashboard-tabs">
-  <ul class="nav nav-pills justify-content-center" style="position: fixed; bottom:0px;">
+<div class="dashboard-tabs d-flex flex-row justify-content-center">
+  <ul class="nav nav-pills" style="position: fixed; bottom:0px;">
     <li class="nav-item">
       <a class="nav-link active" data-toggle="tab" href="#meeting-point">
         <img class="icon-marker" src="https://i.imgur.com/xtCh3Pk.png" title="source: imgur.com">
