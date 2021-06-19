@@ -21,10 +21,11 @@
 // JS libraries
 @import "jquery-bar-rating/dist/themes/css-stars";
 
+//code for the navbar
 .content-height-wrapper {
   height: calc(100vh - 75px);
 }
-
+//code to make all text visible against our flockblue where not already coded;
 body {
   color: $light-gray;
 }

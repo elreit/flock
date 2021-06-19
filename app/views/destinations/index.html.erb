@@ -11,14 +11,14 @@
             <div class="text-block" style="font-size: 20px;">
               <%= destination.user.name %>
             </div>
-              <p><%= Geocoder::Calculations.distance_between([@destination.start_location.latitude, @destination.start_location.longitude], [destination.start_location.latitude, destination.start_location.longitude]).round(3) %> miles</p>
+              <p><%= Geocoder::Calculations.distance_between([@destination.start_location.latitude, @destination.start_location.longitude], [destination.start_location.latitude, destination.start_location.longitude]).round(2) %> miles</p>
             </div>
                 <% end %>
               <% end %>
             <% else %>
               <p>Don't worry! We've got you covered!</p>
               <div class="align-items-center">
-                <%= f.submit "Start walk", class: "btn", :style => "background: #FD5C65; color: white; padding-top: 12px; padding-bottom: 12px;margin-top:10px;" %>
+                <%= f.submit "Start walk", class: "btn", style: "background: #FD5C65; color: white; padding-top: 12px; padding-bottom: 12px;margin-top:10px;" %>
               </div>
             <% end %>
         </div>
