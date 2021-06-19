@@ -23,9 +23,8 @@ class UsersController < ApplicationController
       @reviews.each do |review|
         sum_rating += review.rating
       end
-    end
-
     @avg_rating = sum_rating / @reviews.count
+    end
   end
 
   def dashboard

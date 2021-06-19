@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :chatrooms, only: [:show] do
     resources :messages, only: [:create]
   end
-get 'dashboard', to: 'users#dashboard'
+  get 'dashboard', to: 'users#dashboard'
 end
 
 #   resources :walks, only: [:create, :show, :update] do
