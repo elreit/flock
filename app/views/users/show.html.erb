@@ -4,24 +4,24 @@
   </div>
 
   <div class ="row justify-content-md-center">
-    <div class="col-6">
-      <h2 style="padding-top: 5px; padding-left: 20px; padding-right: 20px;background: #EEE; margin-right: -12px; margin-bottom: -12px;"><%= @user.name%></h2>
-      <p style="text-align: left; padding: 10px; color: #000; background: #EEE; margin-right: -12px;">Number of walks: <%= @total_walks %></p>
-      <p style="text-align: left; padding: 10px; color: #000; background: #EEE; margin-right: -12px;"><%= @user.description %></p>
+    <div class="info-card">
+      <div class ="d-flex justify-content-between">
+        <h3><%= @user.name%></h3>
+        <span> <%= @avg_rating %> ⭐️</span>
+      </div>
+        <p class="user-info">Number of walks: <%= @total_walks %></p>
+        <p class="user-desc"><%= @user.description %></p>
+
+      <h4>Walk with <%= @user.name %></h4>
+      <div>
+        <%= simple_form_for [ @walk ] do |f| %>
+            <%= f.input :meeting_point, placeholder: 'Enter your meeting point',  label: false %>
+            <%= f.hidden_field :buddy_destination_id, value: @destination.id %>
+            <%= f.submit "Confirm Buddy!", class: "btn" %>
+        <% end %>
+      </div>
+    </div>
     </div>
   </div>
 
-  <div class="row justify-content-md-center">
-    <div class="col-4">
-      <%= simple_form_for [ @walk ] do |f| %>
-          <%= f.input :meeting_point, placeholder: 'Enter your meeting point',  label: false, input_html: {style: 'height:45px; width: 300px'} %>
-          <%= f.hidden_field :buddy_destination_id, value: @destination.id %>
-          <%= f.submit "Confirm Buddy!", class: "btn btn-dark btn-lg", :style => "background: #FD5C65 !important; padding-top: 12px; padding-bottom: 12px;" %>
-      <% end %>
-    </div>
-
-    <div class="col-2 flex-end">
-      <%= link_to 'Back to results', destinations_path %>
-    </div>
-  </div>
-</div>
+<%= link_to 'Back', destinations_path, class: "back" %>

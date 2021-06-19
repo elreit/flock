@@ -16,6 +16,16 @@ class UsersController < ApplicationController
       @total_walks += walks_as_buddy
     end
     # count the above 2 to get total number of past walks
+    # review
+    @reviews = Review.where(reviewee_id: @user.id)
+    sum_rating = 0
+    if @reviews
+      @reviews.each do |review|
+        sum_rating += review.rating
+      end
+    end
+
+    @avg_rating = sum_rating / @reviews.count
   end
 
   def dashboard
@@ -36,6 +46,9 @@ class UsersController < ApplicationController
         @requester = requester_destination.user
         @buddymarkers = [lat: @walk_request_received.latitude, lng: @walk_request_received.longitude]
         @buddy_meet_point = [@walk_request_received.longitude, @walk_request_received.latitude]
+        @badge = 1
+      else
+        @badge = 0
       end
     # If user has already confirmed a walk with someone, the incoming request should be declined. Or user choose.
     end

@@ -46,15 +46,30 @@ function optimisedRoute(start,first,second,destinationMap) {
     //       'line-opacity': 0.75
     //     }
     // add turn instructions here at the end
-      var instructions = document.getElementById('instructions');
-      var steps = data.trips[0].legs[0].steps;
+      var instructionsFirst = document.getElementById('instructionsfirst');
+      var instructionsSecond = document.getElementById('instructionssec');
+      var stepsToFirst = data.trips[0].legs[0].steps;
+      var stepsToSecond = data.trips[0].legs[1].steps;
       console.log(data.trips[0]);
-
-      var tripInstructions = [];
-      for (var i = 0; i < steps.length; i++) {
-        tripInstructions.push('<br><li>' + steps[i].maneuver.instruction) + '</li>';
-        instructions.innerHTML = '<br><span class="duration">Trip duration: ' + Math.floor(data.trips[0].duration / 60) + ' min 👟 </span>' + tripInstructions;
+    // directions for the first destination
+      var tripInstructionsFirst = [];
+      var tripInstructionsSec = [];
+      if (instructionsFirst) {
+        for (var i = 0; i < stepsToFirst.length; i++) {
+          tripInstructionsFirst.push('<br><li>' + stepsToFirst[i].maneuver.instruction) + '</li>';
+          instructionsFirst.innerHTML = '<br><span class="duration">Trip duration: ' + Math.floor(data.trips[0].legs[0].duration / 60) + ' min 👟 </span>' + tripInstructionsFirst;
+        }
       }
+    // directions for the second destination, need both steps
+      if (instructionsSecond) {
+      for (var i = 0; i < stepsToFirst.length; i++) {
+        tripInstructionsSec.push('<br><li>' + stepsToFirst[i].maneuver.instruction) + '</li>';
+      }
+      for (var i = 0; i < stepsToSecond.length; i++) {
+        tripInstructionsSec.push('<br><li>' + stepsToSecond[i].maneuver.instruction) + '</li>';
+        instructionsSecond.innerHTML = '<br><span class="duration">Trip duration: ' + Math.floor(data.trips[0].duration / 60) + ' min 👟 </span>' + tripInstructionsSec;
+      }
+    }
     });
     // }
   // });

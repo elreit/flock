@@ -62,16 +62,16 @@ start_point2 = Location.new(address: "Hoxton Station, London")
 start_point2.save!
 start_point3 = Location.new(address: "Le Wagon, London")
 start_point3.save!
-start_point4 = Location.new(address: "Hoxton Station, London")
+start_point4 = Location.new(address: "Hoxton station, London")
 start_point4.save!
 start_point5 = Location.new(address: "Star Lane Station, London")
 start_point5.save!
 
 puts "5 start points have been created"
 
-end_point1= Location.new(address: "Shoreditch, London")
+end_point1= Location.new(address: "Haggerston station, Lee Street, London")
 end_point1.save!
-end_point2 = Location.new(address: "Shoreditch, London")
+end_point2 = Location.new(address: "Dalston Kingsland station")
 end_point2.save!
 end_point3 = Location.new(address: "Excel London")
 end_point3.save!

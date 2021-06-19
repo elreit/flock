@@ -40,6 +40,9 @@ import { initRouteMap } from '../plugins/init_routemap';
 import { initDestinationMap } from '../plugins/init_destinationmap';
 import { initChatroomCable } from '../channels/chatroom_channel';
 import { initGetHomeAddress } from '../plugins/init_gethomeaddress';
+import { initStarRating } from '../plugins/init_star_rating';
+import { initSweetalert } from '../plugins/init_sweetalert';
+
 
 document.addEventListener('turbolinks:load', () => {
   initFetchCurrentPosition();
@@ -49,8 +52,28 @@ document.addEventListener('turbolinks:load', () => {
   initDestinationMap();
   initChatroomCable();
   initGetHomeAddress();
+  initStarRating();
+  initSweetalert('arrived', {
+    title: "Hooray you are home safe and sound!",
+    icon: "success",
+    buttons: {
+     review: "Review your buddy",
+     message: "Tell your friend you are safe"},
+  }, (value) => {
+    switch(value) {
+      case "review":
+        const reviewLink = document.getElementById('reviewlink');
+        reviewLink.click();
+      break;
+
+      case "message":
+        const sendMessage = document.getElementById('whatsapplink');
+        const walkId = sendMessage.dataset.walkid;
+        if (sendMessage) {
+          sendMessage.click();
+          window.location.replace(`https://www.flock525.club/walks/${walkId}/reviews/new`);
+        }
+      break;
+    }
+  });
 })
-
-import { initStarRating } from '../plugins/init_star_rating';
-
-initStarRating();
