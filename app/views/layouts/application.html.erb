@@ -41,7 +41,9 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
+    <% unless params[:controller] == "devise/sessions" || params[:controller] == "devise/registrations" || params[:controller] == "destinations/new" %>
+      <%= render 'shared/navbar' %>
+    <% end %>
     <%= render 'shared/flashes' %>
     <div class="<%= controller_name %> <%= action_name %>">
       <%= yield %>
