@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2021_06_13_155702) do
-
+ActiveRecord::Schema.define(version: 2021_06_17_175415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +35,6 @@ ActiveRecord::Schema.define(version: 2021_06_13_155702) do
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
-
 
   create_table "chatrooms", force: :cascade do |t|
     t.string "name"
@@ -64,23 +61,6 @@ ActiveRecord::Schema.define(version: 2021_06_13_155702) do
     t.bigint "start_location_id"
     t.bigint "end_location_id"
     t.index ["user_id"], name: "index_destinations_on_user_id"
-  end
-
-  create_table "favorites", force: :cascade do |t|
-    t.string "favoritable_type", null: false
-    t.bigint "favoritable_id", null: false
-    t.string "favoritor_type", null: false
-    t.bigint "favoritor_id", null: false
-    t.string "scope", default: "favorite", null: false
-    t.boolean "blocked", default: false, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["blocked"], name: "index_favorites_on_blocked"
-    t.index ["favoritable_id", "favoritable_type"], name: "fk_favoritables"
-    t.index ["favoritable_type", "favoritable_id"], name: "index_favorites_on_favoritable_type_and_favoritable_id"
-    t.index ["favoritor_id", "favoritor_type"], name: "fk_favorites"
-    t.index ["favoritor_type", "favoritor_id"], name: "index_favorites_on_favoritor_type_and_favoritor_id"
-    t.index ["scope"], name: "index_favorites_on_scope"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -124,8 +104,8 @@ ActiveRecord::Schema.define(version: 2021_06_13_155702) do
     t.string "emergency_contact_name"
     t.string "emergency_contact_number"
     t.string "name"
-    t.string "nickname"
     t.text "address"
+    t.string "nickname"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
