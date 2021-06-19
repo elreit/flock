@@ -23,7 +23,7 @@
 
   <body>
 
-    <% if params[:action] == 'new' %>
+    <% if params[:controller] == "devise/sessions" || params[:controller] == "devise/registrations" || params[:controller] == "destinations/new" %>
       <%= render 'shared/new' %>
     <% else %>
       <%= render 'shared/navbar' %>
