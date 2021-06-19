@@ -23,7 +23,11 @@ class UsersController < ApplicationController
       @reviews.each do |review|
         sum_rating += review.rating
       end
-    @avg_rating = sum_rating / @reviews.count
+      if @reviews.count > 0
+        @avg_rating = sum_rating / @reviews.count
+      else
+        @avg_rating = 'No reviews'
+      end
     end
   end
 
