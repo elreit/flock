@@ -1,22 +1,26 @@
-<div class="container-fluid">
-  <h3>Results</h3>
-    <h4><%= @destinations.reject{|dest| dest.user == current_user}.count %> Flocker(s) nearby...</h4>
-</div>
-<div class="cards_container">
-  <div class="cards">
-    <% if @destinations %>
-      <% @destinations.reject{|dest| dest.user == current_user}.each do |destination| %>
-      <%= link_to user_path(destination.user) do %>
-      <div class="card">
-        <%= cl_image_tag destination.user.photo.key %>
-        <div class="text-block" style="font-size: 20px;"><%= destination.user.name %></div>
-        <p><%= Geocoder::Calculations.distance_between([@destination.start_location.latitude, @destination.start_location.longitude], [destination.start_location.latitude, destination.start_location.longitude]).round(3) %> miles</p>
+<div class="destination-index">
+  <h3 class="destination-index">Results</h3>
+    <h4 class="destination-index"><%= @destinations.reject{|dest| dest.user == current_user}.count %> Flocker(s) nearby...</h4>
+      <div class="cards_container">
+        <div class="cards">
+          <% if @destinations %>
+            <% @destinations.reject{|dest| dest.user == current_user}.each do |destination| %>
+            <%= link_to user_path(destination.user) do %>
+            <div class="card">
+              <%= cl_image_tag destination.user.photo.key %>
+            <div class="text-block" style="font-size: 20px;">
+              <%= destination.user.name %>
+            </div>
+              <p><%= Geocoder::Calculations.distance_between([@destination.start_location.latitude, @destination.start_location.longitude], [destination.start_location.latitude, destination.start_location.longitude]).round(3) %> miles</p>
+            </div>
+                <% end %>
+              <% end %>
+            <% else %>
+              <p>Don't worry! We've got you covered!</p>
+              <div class="align-items-center">
+                <%= f.submit "Start walk", class: "btn", :style => "background: #FD5C65; color: white; padding-top: 12px; padding-bottom: 12px;margin-top:10px;" %>
+              </div>
+            <% end %>
+        </div>
       </div>
-      <% end %>
-      <% end %>
-    <% else %>
-      <h3>There are 0 Flockers nearby</h3>
-      <p>Don't worry! We've got you covered!</p>
-    <% end %>
   </div>
-</div>

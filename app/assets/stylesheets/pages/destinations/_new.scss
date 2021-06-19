@@ -1,3 +1,40 @@
 .destinations.new {
   // adding your css code here
+  .destination-home {
+    display: flex;
+    justify-content: center;
+    // margin-top: 220px;
+  }
+  .destination-textbox {
+    color: #fff;
+    width: 300px;
+    font-size: 18px;
+  }
+  .icon {
+    margin-top: -10px;
+    margin-bottom: 16px;
+  }
+  .icon img {
+    width: 20px;
+    height: 20px;
+  }
+  .btn-block {
+    align-items: center;
+    background: #FD5C65;
+    color: #fff;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-top:10px;
+  }
+  #find-me {
+    color: #fff;
+    text-decoration: underline;
+    font-size: 16px;
+  }
+  #home-address {
+    color: #fff;
+    text-decoration: underline;
+    font-size: 16px;
+  }
 }
+
