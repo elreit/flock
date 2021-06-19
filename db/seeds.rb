@@ -25,7 +25,7 @@ puts "Creating users"
     email: Faker::Internet.email,
     password: "123456",
     description: Faker::GreekPhilosophers.quote,
-    emergency_contact_number: "47707872023",
+    emergency_contact_number: "447707872023",
     emergency_contact_name: Faker::FunnyName.two_word_name,
   )
   user.photo.attach(io: URI.open('https://res.cloudinary.com/diq781xvq/image/upload/v1621452023/aflbe156grlwfz860qfp7a00edau.jpg'), filename: 'avatar.png', content_type: 'image/jpg')
