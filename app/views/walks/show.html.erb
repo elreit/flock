@@ -2,40 +2,42 @@
 
   <div class="tab-pane fade in show active" id="meeting-point">
     <% if current_user.name == @my_buddy.name %>
-      <h2>You will meet <%= @requester.name %>...</h2>
+      <h4>You will meet <%= @requester.name.split(" ")[0] %>...</h4>
     <% else %>
-      <h2>You will meet <%= @my_buddy.name %>...</h2>
+      <h4>You will meet <%= @my_buddy.name.split(" ")[0] %>...</h4>
     <% end %>
-    <h3 class="text-center">Show your pin: <%= @walk.pin %></h3>
-    <h3 class="btn text-center" id="tab-dashboard"><%= link_to "Let's flock!🕊", routes_walk_path(@walk), :style => "color: white;" %></h3>
+    <h5 class="text-center">Show your pin: <%= @walk.pin %></h5>
+    <h4 class="btn text-center" id="tab-dashboard"><%= link_to "Let's flock!🕊", routes_walk_path(@walk), :style => "color: white;" %></h4>
 
     <div id="routemap"
-     style="width: 380px; height: 400px;"
      data-meet-lng="<%= @meet_point_lng %>"
      data-meet-lat="<%= @meet_point_lat %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-     </div>
+    </div>
 
 
-    <div id="instructions" style="width: 380px;"></div>
-  </div>
+    <div id="instructions"></div>
+    </div>
 
   <div class="tab-pane fade" id="messaging">
-    <%= link_to 'Chat', chatroom_path(@walk.chatroom) %>
+    <h3 class="btn text-center" id="tab-dashboard"><%= link_to "Chat to #{@my_buddy.name}!", chatroom_path(@walk.chatroom), :style => "color: white;" %></h3>
   </div>
-</div>
 
 <div class="dashboard-tabs">
-  <ul class="nav nav-pills justify-content-center">
+  <ul class="nav nav-pills justify-content-center" style="position: fixed; bottom:0px;">
     <li class="nav-item">
       <a class="nav-link active" data-toggle="tab" href="#meeting-point">
         <img class="icon-marker" src="https://i.imgur.com/xtCh3Pk.png" title="source: imgur.com">
+        <p class="text-tab">Meeting point</p>
       </a>
     </li>
     <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#messaging">
         <img class="icon-letter" src="https://i.imgur.com/jAw3Wrn.png" title="source: imgur.com">
-        <span class="badge">3</span>
+        <span class="badge"><%= @new_messages %></span>
+        <div class="chat-link">
+          <%= link_to 'Chatroom', chatroom_path(@walk.chatroom) %>
+        </div>
       </a>
     </li>
   </ul>

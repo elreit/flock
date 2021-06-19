@@ -1,16 +1,51 @@
 #instructions {
-  width: 25%;
   top: 0;
   bottom: 20%;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.9);
   overflow-y: scroll;
-  font-family: sans-serif;
+  font-family: 'Roboto', 'sans-serif';
   font-size: 0.8em;
   line-height: 2em;
   border-radius: 2px;
+
+  li {
+    list-style-type: none;
+  }
+}
+
+#instructionsfirst {
+  top: 0;
+  bottom: 20%;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  overflow-y: scroll;
+  font-family: 'Roboto', 'sans-serif';
+  font-size: 0.8em;
+  line-height: 2em;
+  border-radius: 2px;
+
+  li {
+    list-style-type: none;
+  }
 }
 
 .duration {
   font-size: 2em;
+}
+
+#instructionssec {
+  top: 0;
+  bottom: 20%;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  overflow-y: scroll;
+  font-family: 'Roboto', 'sans-serif';
+  font-size: 0.8em;
+  line-height: 2em;
+  border-radius: 2px;
+
+  li {
+    list-style-type: none;
+  }
 }

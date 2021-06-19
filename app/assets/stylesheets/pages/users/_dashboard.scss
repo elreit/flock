@@ -1,3 +1,109 @@
 .users.dashboard {
   // adding your css code here
+  height: 661px;
+  margin-bottom: 0;
+  position: relative;
+  // map
+  #map, #mapbuddy {
+    width: 380px;
+    height: 150px;
+  }
+  // card
+  .card {
+    width: 380px;
+    height: 350px;
+    border-radius: 0px;
+  }
+
+  .card-body {
+    padding: 10px;
+  }
+
+  .blank-card {
+    height: 500px;
+  }
+  // profile pic
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+
+  .icon-tab {
+    height: 30px;
+    width: 30px;
+  }
+
+  // clicks & buttons
+  .btn-dashboard {
+    color: #FD5C65;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top:10px;
+    font-size:16px;
+  }
+
+  .btn-link {
+    background: #FD5C65;
+    width: 220px;
+    text-align: center;
+    border-radius: 2px;
+    padding: 5px 12px;
+    font-size: 16px;
+  }
+
+  .btn-link:hover {
+    text-decoration: none;
+  }
+
+  // tabs
+  .fade:not(.show) {
+    display: none;
+  }
+
+  .nav-link {
+    background: #FD5C65;
+    width: 205px;
+    text-align: center;
+    border-radius: 0px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
+
+  .dashboard-tabs {
+    position: absolute;
+    bottom: 0px;
+  }
+
+  a {
+    color: white;
+    font-size: 16px;
+  }
+
+  .text-tab {
+    color: white;
+    font-size: 14px;
+    margin: 0;
+    text-align: center;
+  }
+
+  .badge {
+     background: black;
+     margin-right: 0;
+  }
+
+  #text-dashboard {
+    color: black;
+    font-size: 16px;
+    text-align: left;
+    margin-left: 10px;
+  }
+
+  #tab-dashboard {
+    background-color: #FD5C65;
+  }
+
+  #tab-dashboard:hover {
+    color: white;
+  }
 }
