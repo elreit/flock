@@ -25,7 +25,7 @@ puts "Creating users"
     email: Faker::Internet.email,
     password: "123456",
     description: Faker::GreekPhilosophers.quote,
-    emergency_contact_number: "07707872023",
+    emergency_contact_number: "447707872023",
     emergency_contact_name: Faker::FunnyName.two_word_name,
   )
   user.photo.attach(io: URI.open('https://res.cloudinary.com/diq781xvq/image/upload/v1621452023/aflbe156grlwfz860qfp7a00edau.jpg'), filename: 'avatar.png', content_type: 'image/jpg')
@@ -62,16 +62,16 @@ start_point2 = Location.new(address: "Hoxton Station, London")
 start_point2.save!
 start_point3 = Location.new(address: "Le Wagon, London")
 start_point3.save!
-start_point4 = Location.new(address: "Hoxton Station, London")
+start_point4 = Location.new(address: "Hoxton station, London")
 start_point4.save!
 start_point5 = Location.new(address: "Star Lane Station, London")
 start_point5.save!
 
 puts "5 start points have been created"
 
-end_point1= Location.new(address: "Shoreditch, London")
+end_point1= Location.new(address: "Haggerston station, Lee Street, London")
 end_point1.save!
-end_point2 = Location.new(address: "Shoreditch, London")
+end_point2 = Location.new(address: "Dalston Kingsland station")
 end_point2.save!
 end_point3 = Location.new(address: "Excel London")
 end_point3.save!
