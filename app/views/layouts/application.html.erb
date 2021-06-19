@@ -22,12 +22,9 @@
   </head>
 
   <body>
-
-    <% if params[:controller] == "devise/sessions" || params[:controller] == "devise/registrations" || params[:controller] == "destinations/new" %>
-      <%= render 'shared/new' %>
-    <% else %>
-      <%= render 'shared/navbar' %>
-    <% end %>
+      <% unless ( params[:controller] == "devise/sessions" )%>
+        <%= render 'shared/navbar' %>
+      <% end %>
     <div class="<%= controller_name %> <%= action_name %>">
       <%= yield %>
     </div>

@@ -16,3 +16,11 @@
 
 // JS libraries
 @import "jquery-bar-rating/dist/themes/css-stars";
+
+.content-height-wrapper {
+  height: calc(100vh - 75px);
+}
+
+// body {
+//   color: $light-gray;
+// }
