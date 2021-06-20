@@ -1,20 +1,30 @@
-<div class="container" class="tab-content" align="center">
+<div class="walk-show" class="tab-content" align="center">
 
   <div class="tab-pane fade in show active" id="meeting-point">
-    <% if current_user.name == @my_buddy.name %>
-      <h4>You will meet <%= @requester.name.split(" ")[0] %>...</h4>
-    <% else %>
-      <h4>You will meet <%= @my_buddy.name.split(" ")[0] %>...</h4>
-    <% end %>
-    <h5 class="text-center">Show your pin: <%= @walk.pin %></h5>
-    <h4 class="btn text-center" id="tab-dashboard"><%= link_to "Let's flock!🕊", routes_walk_path(@walk), :style => "color: white;" %></h4>
+    <div class="top">
+      <div class="d-flex align-item-start">
+      <% if current_user.name == @my_buddy.name %>
+        <p>Meet <%= @requester.name.split(" ")[0] %>...</p>
+        <%= cl_image_tag current_user.photo.key, class: "user-pic" %>
+        <%= cl_image_tag @requester.photo.key, class: "user-pic" %>
+      <% else %>
+        <p>Meet <%= @my_buddy.name.split(" ")[0] %>...</p>
+        <%= cl_image_tag current_user.photo.key, class: "user-pic" %>
+        <%= cl_image_tag @my_buddy.photo.key, class: "user-pic" %>
+      <% end %>
+      </div>
+    </div>
+
+    <h4 class="text-center" id="pin">Show your pin: <%= @walk.pin %> <i class="fas fa-user-lock"></i></h4>
+    <div class = "flock">
+      <%= link_to "Let's flock!🕊", routes_walk_path(@walk), class:"letsflock" %>
+    </div>
 
     <div id="routemap"
      data-meet-lng="<%= @meet_point_lng %>"
      data-meet-lat="<%= @meet_point_lat %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-
 
     <div id="instructions"></div>
     </div>
@@ -23,21 +33,19 @@
     <h3 class="btn text-center" id="tab-dashboard"><%= link_to "Chat to #{@my_buddy.name}!", chatroom_path(@walk.chatroom), :style => "color: white;" %></h3>
   </div>
 
-<div class="dashboard-tabs d-flex flex-row justify-content-center">
-  <ul class="nav nav-pills" style="position: fixed; bottom:0px;">
+<div class="walk-tab">
+  <ul class="nav nav-pills">
     <li class="nav-item">
       <a class="nav-link active" data-toggle="tab" href="#meeting-point">
-        <img class="icon-marker" src="https://i.imgur.com/xtCh3Pk.png" title="source: imgur.com">
+        <i class="fas fa-map-marker-alt"></i>
         <p class="text-tab">Meeting point</p>
       </a>
     </li>
     <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#messaging">
-        <img class="icon-letter" src="https://i.imgur.com/jAw3Wrn.png" title="source: imgur.com">
+        <%= link_to ('<i class="far fa-comments"></i>').html_safe, chatroom_path(@walk.chatroom) %>
         <span class="badge"><%= @new_messages %></span>
-        <div class="chat-link">
-          <%= link_to 'Chatroom', chatroom_path(@walk.chatroom) %>
-        </div>
+        <p class="text-tab">Chatroom</p>
       </a>
     </li>
   </ul>

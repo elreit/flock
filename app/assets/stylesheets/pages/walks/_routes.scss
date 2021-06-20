@@ -11,7 +11,7 @@
 
   // map
   #destinationmap {
-    width: 380px;
+    width: 414px;
     height: 400px;
     margin-top: 10px;
     position: sticky;
@@ -19,10 +19,18 @@
   }
 
   #instructionsfirst {
-    width: 380px;
+    width: 414px;
+    background: white;
+    color: black;
   }
 
   #instructionssec {
-    width: 380px;
+    width: 414px;
+    background: white;
+    color: black;
+  }
+
+  .mapboxgl-ctrl-logo {
+    display: none;
   }
 }

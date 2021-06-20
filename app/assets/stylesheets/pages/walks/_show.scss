@@ -3,22 +3,104 @@
   margin-bottom: 0;
   position: relative;
 
+  .walk-show {
+    display: flex;
+    justify-content: center;
+  }
+  // top section
+  .top {
+    width: 414px;
+    margin-bottom: 10px;
+    p {
+      font-size: 20px;
+      text-align: left;
+      margin-left: 24px;
+      color: white;
+    }
+  }
+
+  .user-pic {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+  }
+
+
+  #pin {
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+
+  .flock {
+    margin-bottom: 24px;
+
+    .letsflock {
+      background-color: $flock-pink;
+      padding: 10px 20px;
+      color: white;
+      width: 150px;
+      border-radius: 10px;
+      font-size: 20px;
+    }
+  }
+
   // map
+  .mapboxgl-ctrl-logo {
+    display: none;
+  }
   #routemap {
-    width: 380px;
+    width: 414px;
     height: 400px;
     position: sticky;
     top: 0px;
+    border-radius: 10px;
   }
 
   #instructions {
-    width: 380px;
+    width: 414px;
     overflow: scroll;
+    background: white;
+    color: black;
+    margin-top: -21px;
+    padding-bottom: 80px;
   }
 
+  .duration {
+      font-size: 1.8em;
+      font-weight: 700;
+    }
+
+
   // tabs
+  .walk-tab {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    background: $flock-pink;
+    li {
+      list-style-type: none;
+    }
+    img {
+      width: 35px;
+      height: 35px;
+      margin-bottom: 2px;
+    }
+  }
   .fade:not(.show) {
     display: none;
+  }
+
+  .far.fa-comments {
+    font-size: 37px;
+    margin-right: 10px;
+    color: black;
+  }
+
+  .fas.fa-map-marker-alt {
+    font-size: 37px;
+    color: black;
   }
 
   .chat-link {
@@ -45,7 +127,7 @@
 
   .nav-link {
     background: #FD5C65;
-    width: 205px;
+    width: 207px;
     text-align: center;
     border-radius: 0px;
     padding-bottom: 5px;
