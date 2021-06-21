@@ -14,12 +14,13 @@
     <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.css" type="text/css"/>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+    <%= favicon_link_tag 'favicon.ico' %>
 
-    <!-- Meta tags -->
+        <!-- Meta tags -->
     <title><%= meta_title %></title>
     <meta name="description" content="<%= meta_description %>">
 
-    <!-- Facebook Open Graph data for meta tags -->
+   <!--  Facebook Open Graph data for meta tags -->
     <meta property="og:title" content="<%= meta_title %>" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="<%= request.original_url %>" />
@@ -27,7 +28,7 @@
     <meta property="og:description" content="<%= meta_description %>" />
     <meta property="og:site_name" content="<%= meta_title %>" />
 
-    <!-- Twitter Card data for meta tags -->
+<!--     Twitter Card data for meta tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="<%= DEFAULT_META["twitter_account"] %>">
     <meta name="twitter:title" content="<%= meta_title %>">
@@ -35,14 +36,16 @@
     <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
     <meta name="twitter:image:src" content="<%= meta_image %>">
 
+
     <link rel="icon" href="https://res.cloudinary.com/djiwfu4hh/image/upload/v1623793929/favicon_io/apple-touch-icon_itrkiy.png">
 
 
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
+      <% unless ( params[:controller] == "devise/sessions" )%>
+        <%= render 'shared/navbar' %>
+      <% end %>
     <div class="<%= controller_name %> <%= action_name %>">
       <%= yield %>
     </div>

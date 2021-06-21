@@ -1,21 +1,25 @@
 <div class="container" align="center">
   <div class="row">
     <div class="col-xs-4">
-      <h1> Rate your trip with <%= @my_buddy.name %> </h1>
-        <%= cl_image_tag @my_buddy.photo.key, :style => "width: 150px; height: 150px; border-radius: 50%" %>
+      <div id="star-rating">
+        <h1> Rate your trip with <br><%= @my_buddy.name %> </h1>
+        <%= cl_image_tag @my_buddy.photo.key, :style => "margin-top: 10px; width: 150px; height: 150px; border-radius: 50%; margin-bottom: -4px;" %>
         <%= simple_form_for [@walk, @review], html: { class: "review_form" } do |f| %>
           <%= f.input :rating, collection: (1..5).to_a, label: false %>
-            <%= f.association :compliments, legend_tag: false,
-                    as: :check_boxes,
-                    input_html: { class: "tag-selector" },
-                    item_wrapper_class: 'tag-item',
-                    collection: Compliment::COMPLIMENTS %>
-            <div class="tag-item">
+            <div class="reviewcompliments">
+              <%= f.association :compliments, legend_tag: false,
+                as: :check_boxes,
+                input_html: { class: "tag-selector" },
+                item_wrapper_class: 'tag-item',
+                collection: Compliment::COMPLIMENTS %>
+             <div class="tag-item">
               <%= f.check_box :favorite, class: "tag-selector" %>
               <%=  f.label :favorite, "Add to favorites?" %>
             </div>
-          <%= f.submit "Submit", class: "btn", :style => "background: #E5E5E5; color: #000; padding-top: 12px; padding-bottom: 12px;margin-top:10px;" %>
+            </div>
+          <%= f.submit "Submit", class: "btn btn-block", :style => "background: #E5E5E5; color: #000; padding-top: 12px; padding-bottom: 12px;margin-top:10px;" %>
         <% end %>
+      </div>
     </div>
   </div>
 </div>
