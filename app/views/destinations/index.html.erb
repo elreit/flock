@@ -8,10 +8,12 @@
             <%= link_to user_path(destination.user) do %>
             <div class="card">
               <%= cl_image_tag destination.user.photo.key %>
-            <div class="text-block" style="font-size: 20px;">
+            <div class="text-block">
               <%= destination.user.name %>
             </div>
               <p><%= Geocoder::Calculations.distance_between([@destination.start_location.latitude, @destination.start_location.longitude], [destination.start_location.latitude, destination.start_location.longitude]).round(2) %> miles</p>
+              <span style="color: #000; padding-left: 15px; margin-top: -10px;"> <%= @avg_rating %> ★
+              # of Walks: <%=  %></span>
             </div>
                 <% end %>
               <% end %>
