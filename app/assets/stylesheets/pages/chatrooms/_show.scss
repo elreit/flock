@@ -1,37 +1,57 @@
 .chatrooms.show {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  bottom: 0;
+
+  .btn {
+    align-content: center;
+    width: 30%;
+    margin-bottom: 25px;
+  }
 
   .text-box {
-    position: sticky;
-    bottom: 0;
     margin: 20px;
     width: 90%;
-
-  }
-
-  p {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 0.2em;
-    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
-    padding: 5px;
-    text-align: left;
-    margin-left: 300px;
-    overflow-wrap: break-word;
-    color: white;
-  }
-
-  .message-container {
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
-    justify-content: space-between;
-    color: white;
   }
 
   #messages {
-    justify-content: center;
-  }
+    display: flex;
+    flex-flow: column wrap;
 
-  .btn {
-    margin-left: 260px;
+    #user-message {
+      display: flex;
+      color: white;
+      flex-flow: column wrap;
+      align-items: flex-end;
+
+      p {
+        text-align: center;
+        border-radius: 0.2em;
+        background: rgba(253, 92, 101, 0.7);
+        color: white;
+        overflow-wrap: break-word;
+        padding: 5px;
+        box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
+        max-width: 40%;
+      }
+    }
+
+    #buddy-message {
+      display: flex;
+      color: white;
+      flex-flow: column wrap;
+
+      p {
+        text-align: center;
+        border-radius: 0.2em;
+        background: rgba(253, 92, 101, 0.4);
+        color: white;
+        overflow-wrap: break-word;
+        padding: 5px;
+        box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
+        width: 30%;
+      }
+    }
   }
 }
