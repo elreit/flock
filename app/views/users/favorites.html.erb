@@ -2,7 +2,7 @@
   <h3> Your favourite flockers </h3>
     <% @favorites.each do |favorite| %>
       <div class="favorite-card">
-        <%= cl_image_tag @user.photo.key%> <!--need to fix this -->
+        <%= cl_image_tag favorite.photo.key%> <!--need to fix this -->
         <div class="favorite-card-info">
           <p class="fav-name">
             <%= favorite.name %>

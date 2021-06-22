@@ -12,6 +12,7 @@
               <%= destination.user.name %>
             </div>
               <p><%= Geocoder::Calculations.distance_between([@destination.start_location.latitude, @destination.start_location.longitude], [destination.start_location.latitude, destination.start_location.longitude]).round(3) %> miles</p>
+              <p><%= @avg_rating %></p>
             </div>
                 <% end %>
               <% end %>
