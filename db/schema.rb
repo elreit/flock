@@ -104,8 +104,8 @@ ActiveRecord::Schema.define(version: 2021_06_17_175415) do
     t.string "emergency_contact_name"
     t.string "emergency_contact_number"
     t.string "name"
-    t.text "address"
     t.string "nickname"
+    t.text "address"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
