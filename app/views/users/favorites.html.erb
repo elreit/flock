@@ -6,7 +6,7 @@
         <div class="favorite-card-info">
           <p class="fav-name">
             <%= favorite.name %>
-          <span><%= @avg_rating %> </span>
+          <span><%= favorite.average_rating.round(1) %> </span>
           </p><br>
           <%= Compliment.where(review_id: Review.where(reviewee_id: favorite.id, user_id: @user.id).last.id).map(&:content).join(", ") %>
         </div>

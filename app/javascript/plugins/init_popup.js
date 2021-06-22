@@ -9,12 +9,14 @@ openPopUpButtons.forEach(button => {
   })
 })
 
-overlay.addEventListener('click', () => {
-  const popUps = document.querySelectorAll('.pop-up.active')
-  popUps.forEach(popUp => {
-    closePopUp(popUp)
+if (overlay) {
+  overlay.addEventListener('click', () => {
+    const popUps = document.querySelectorAll('.pop-up.active')
+    popUps.forEach(popUp => {
+      closePopUp(popUp)
+    })
   })
-})
+}
 
 closePopUpButtons.forEach(button => {
   button.addEventListener('click', () => {
