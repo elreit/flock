@@ -3,12 +3,22 @@
   <div class="top">
     <%= cl_image_tag @user.photo.key%>
     <h3 class="user-name"><%= @user.name%></h3>
+    <div>
+      <% case @total_walks %>
+      <% when 10..20 %>
+        <h5 class="flock-level">Casual Flocker</h5>
+      <% when 20..1000 %>
+        <h5 class="flock-level">Expert Flocker</h5>
+      <% else %>
+        <h5 class="flock-level">Beginner Flocker</h5>
+      <% end %>
+    </div>
   </div>
 
   <div class="middle d-flex flex-column">
     <div class="d-flex justify-content-around" id="middle-top">
       <div class="bd-highlight"><%= @total_walks %></div>
-      <div class="bd-highlight"><%= @avg_rating %></div>
+      <div class="bd-highlight"><%= @avg_rating %> ★</div>
     </div>
     <div class="d-flex justify-content-around" id="middle-bottom">
       <div class="bd-highlight">walks done</div>
@@ -29,7 +39,14 @@
       <hr />
 
       <div class="reviews">
-          <p class="user-desc"> For reviews </p>
+          <h5 class="review-title"> Reviews </h5>
+          <% @reviewers.each do |reviewer| %>
+            <h5 class="reviewer-name"> <%= reviewer.name %> </h5>
+            <div class="review-content">
+              <span class="user-desc"><%= @compliment.last.content %></span>
+              <span class ="user-desct"><%= '⭐️' * @review_rating %></span>
+            </div>
+          <% end %>
       </div>
   </div>
 </div>

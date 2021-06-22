@@ -11,13 +11,15 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    background-color: #1F242C;
   }
 
   .top {
-    height: 245px;
-    width: 414px;
-    background: linear-gradient(90deg, rgba(238,174,202,0.35477941176470584) 31%, rgba(148,199,233,0.6629026610644257) 100%);
+    height: 270px;
+    width: 392px;
+    background: #E7D3CC;
     border-radius: 20px 20px 0 0;
+    margin-left: 11px;
   }
 
   .user-name {
@@ -27,19 +29,30 @@
     font-weight: 900;
   }
 
+  .flock-level {
+    font-size: 16px;
+    color: darkslategrey;
+    text-align: center;
+    padding: 0px;
+  }
+
   .bottom {
     height: 416px;
-    width: 414px;
-    background: linear-gradient(90deg, rgba(238,174,202,0.35477941176470584) 31%, rgba(148,199,233,0.6629026610644257) 100%);
+    width: 392px;
+    background: white;
     border-radius: 0 0 20px 20px;
+    margin-left: 11px;
   }
 
   .middle {
     height: 70px;
-    width: 414px;
+    width: 392px;
     background: white;
-    border-radius: 0 0 20px 20px;
+    border-radius: 0;
     color: black;
+    margin-top: -12px;
+    margin-left: 11px;
+    border-bottom: 1px solid lightgrey;
   }
 
   .review {
@@ -47,7 +60,24 @@
     background: white;
     border-radius: 0 0 20px 20px;
   }
-
+  hr {
+    margin-bottom: 0rem;
+  }
+  .review-title {
+    color: black;
+    padding-left: 20px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .reviewer-name {
+    color: black;
+    font-size: 16px;
+    padding-left: 20px;
+    font-weight: 700;
+  }
+  .review-content {
+    margin-left: 20px;
+  }
   #middle-top {
     font-weight: 700;
     font-size: 20px;
@@ -64,7 +94,7 @@
     height: 150px;
     display: block;
     border-radius: 50%;
-    margin: 20px auto;
+    margin: 20px auto 10px auto;
   }
 
   .info-card {
@@ -90,11 +120,10 @@
     }
 
     .form-control {
-      width: 385px;
+      width: 368px;
       text-align: left;
       margin: 10px auto;
       border-radius: 9px;
-      border: none;
     }
 
     .user-info {

@@ -3,7 +3,7 @@
 <div class="user-dashboard" class="tab-content" align="center">
 
 <!-- Requests I have sent -->
-  <div class="tab-pane fade show active" id="request">
+  <div class="tab-pane fade <%= params[:status] ? " " : "show active" %>" id="request">
     <% if @my_walk_request %>
   <!-- map -->
     <div id="map"
@@ -42,7 +42,7 @@
     </div>
 
 <!-- Requests I have received -->
-  <div class="tab-pane fade" id="incoming">
+  <div class="tab-pane fade <%= params[:status] ? "show active" : " " %>" id="incoming">
     <% if @walk_request_received %>
     <!-- map -->
     <div id="mapbuddy"
@@ -108,13 +108,13 @@
   <div class="user-tab">
     <ul class="nav nav-pills">
       <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#request" id="activetab">
+        <a class="nav-link <%= params[:status] ? "" : "active" %>" data-toggle="tab" href="#request" id="activetab">
           <img class="icon-person" src="https://i.imgur.com/gNYUbFp.png" title="source: imgur.com" id="icon-tab">
           <p class="text-tab">Requests sent</p>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#incoming" id="incomingtab">
+        <a class="nav-link <%= params[:status] ? "active" : " " %>" data-toggle="tab" href="#incoming" id="incomingtab">
           <img class="icon-letter" src="https://i.imgur.com/giHPsCH.png" title="source: imgur.com" id="icon-tab">
           <span class="badge"><%= @badge %></span>
           <p class="text-tab">Requests received</p>
@@ -125,11 +125,11 @@
 </div>
 
 
-
-<!-- <script>
+<!-- 
+<script>
     window.setInterval('refresh()', 10000);
 
     function refresh() {
-        window .location.reload();
+        window.location.reload();
     }
 </script> -->
