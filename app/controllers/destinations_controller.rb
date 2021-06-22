@@ -32,10 +32,22 @@ class DestinationsController < ApplicationController
   end
 
   def index
-      @destination = current_user.destinations.last
-      @start_locations = Location.near([@destination.start_location.latitude, @destination.start_location.longitude], 2.5)
-      @end_locations = Location.near([@destination.end_location.latitude, @destination.end_location.longitude], 2.5)
-      @destinations = Destination.where(start_location_id: @start_locations.map(&:id), end_location_id: @end_locations.map(&:id))
+    @destination = current_user.destinations.last
+    @start_locations = Location.near([@destination.start_location.latitude, @destination.start_location.longitude], 2.5)
+    @end_locations = Location.near([@destination.end_location.latitude, @destination.end_location.longitude], 2.5)
+    @destinations = Destination.where(start_location_id: @start_locations.map(&:id), end_location_id: @end_locations.map(&:id))
+    # @reviews = Review.where(reviewee_id: @user.id)
+    # sum_rating = 0
+    # if @reviews
+    #   @reviews.each do |review|
+    #    sum_rating += review.rating
+    # end
+    #   if @reviews.count > 0
+    #     @avg_rating = sum_rating / @reviews.count
+    #   else
+    #     @avg_rating = 'No reviews'
+    #   end
+    # end
   end
 
   def update

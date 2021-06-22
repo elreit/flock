@@ -19,10 +19,6 @@
     <div id="instructions"></div>
     </div>
 
-  <div class="tab-pane fade" id="messaging">
-    <h3 class="btn text-center" id="tab-dashboard"><%= link_to "Chat to #{@my_buddy.name}!", chatroom_path(@walk.chatroom), :style => "color: white;" %></h3>
-  </div>
-
 <div class="dashboard-tabs d-flex flex-row justify-content-center">
   <ul class="nav nav-pills" style="position: fixed; bottom:0px;">
     <li class="nav-item">
@@ -32,13 +28,10 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#messaging">
+      <%= link_to chatroom_path(@walk.chatroom) do %>
         <img class="icon-letter" src="https://i.imgur.com/jAw3Wrn.png" title="source: imgur.com">
         <span class="badge"><%= @new_messages %></span>
-        <div class="chat-link">
-          <%= link_to 'Chatroom', chatroom_path(@walk.chatroom) %>
-        </div>
-      </a>
+      <% end %>
     </li>
   </ul>
 </div>

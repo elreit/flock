@@ -42,6 +42,7 @@ import { initChatroomCable } from '../channels/chatroom_channel';
 import { initGetHomeAddress } from '../plugins/init_gethomeaddress';
 import { initStarRating } from '../plugins/init_star_rating';
 import { initSweetalert } from '../plugins/init_sweetalert';
+import { initPopup } from '../plugins/init_popup';
 
 
 document.addEventListener('turbolinks:load', () => {

@@ -1,21 +1,33 @@
-<h3 class="btn text-center" id="tab-dashboard"><%= link_to "Back to Map!", walk_path(@walk), :style => "color: white;" %></h3>
 
-<div class="container d-flex">
+<div class="top">
+  <div class="btn justify-content-center" id="tab-dashboard"><%= link_to "Back to Map!", walk_path(@walk), :style => "color: white;" %></div>
+  <hr>
+</div>
+<div class="container">
   <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
     <% @chatroom.messages.each do |message| %>
       <div class="message-container" id="message-<%= message.id %>">
         <i class="author">
-          <span><%= message.user.name %></span>
-          <br>
-          <small><%= message.created_at.strftime("at %l:%M%p") %></small>
+          <% if message.user.name == current_user.name %>
+            <div id="user-message">
+              <p><%= message.content %></p>
+              <span><%= message.user.name %></span>
+              <small><%= message.created_at.strftime("at %l:%M%p") %></small>
+            </div>
+          <% else %>
+            <div id = "buddy-message">
+              <p><%= message.content %></p>
+              <span><%= message.user.name %></span>
+              <small><%= message.created_at.strftime("at %l:%M%p") %></small>
+            </div>
+          <% end %>
         </i>
-        <p><%= message.content %></p>
       </div>
     <% end %>
   </div>
 </div>
 
-<div class="text-box">
+<div class="text-box" style="position: fixed; bottom:0px;">
   <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
     <%= f.input :content, label: false, placeholder: "Type your message" %>
   <% end %>
