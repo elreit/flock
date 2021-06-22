@@ -21,7 +21,11 @@
         <% end %>
       </div>
     </div>
-    </div>
   </div>
+</div>
 
-<%= link_to 'Back', destinations_path, class: "back" %>
+    <p class="back-icon">
+      <%= link_to destinations_path, class: 'back_link_class' do %>
+      <%= image_tag("back2.png", alt: 'image', class: 'back_image_class')%>
+      <% end %>
+    </p>
