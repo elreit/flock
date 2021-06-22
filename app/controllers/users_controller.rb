@@ -3,6 +3,14 @@ class UsersController < ApplicationController
   def favorites
     @user = User.find(params[:user_id])
     @favorites = @user.all_favorited
+    # @favorites.each do |favorite|
+    #   @name = favorite.name
+    #   buddy_id = favorite.id
+    #   buddy_review = Review.where(reviewee_id: buddy_id, user_id: params[:user_id]).last
+    #   if buddy_review
+    #     @compliments = Compliment.where(review_id: buddy_review.id).content
+    #   end
+    # end
   end
 
   def show

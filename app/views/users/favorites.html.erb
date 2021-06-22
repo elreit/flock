@@ -2,8 +2,12 @@
   <div class="row">
     <div class="col-xs-4">
       <h1> Your favourite flockers </h1>
-        <%= @favorites.each do |f| %>
+        <% @favorites.each do |favorite| %>
 
+          <p><%= favorite.name %></p>
+          <% Compliment.where(review_id: Review.where(reviewee_id: favorite.id, user_id: @user.id).last.id).each do |compliment| %>
+            <p><%= compliment.content %></p>
+          <% end %>
         <% end %>
     </div>
   </div>
