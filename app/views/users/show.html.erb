@@ -1,27 +1,35 @@
-<div class="container">
-  <div class="row justify-content-md-center">
+<div class="user-show">
+
+  <div class="top">
     <%= cl_image_tag @user.photo.key%>
+    <h3 class="user-name"><%= @user.name%></h3>
   </div>
 
-  <div class ="row justify-content-md-center">
-    <div class="info-card">
-      <div class ="d-flex justify-content-between">
-        <h3><%= @user.name%></h3>
-        <span> <%= @avg_rating %> ⭐️</span>
-      </div>
-        <p class="user-info">Number of walks: <%= @total_walks %></p>
-        <p class="user-desc"><%= @user.description %></p>
+  <div class="middle d-flex flex-column">
+    <div class="d-flex justify-content-around" id="middle-top">
+      <div class="bd-highlight"><%= @total_walks %></div>
+      <div class="bd-highlight"><%= @avg_rating %></div>
+    </div>
+    <div class="d-flex justify-content-around" id="middle-bottom">
+      <div class="bd-highlight">walks done</div>
+      <div class="bd-highlight">avg rating</div>
+    </div>
+  </div>
 
-      <h4>Walk with <%= @user.name %></h4>
+  <div class = "bottom">
+      <p class="user-desc"><%= @user.description %></p>
+
       <div>
         <%= simple_form_for [ @walk ] do |f| %>
-            <%= f.input :meeting_point, placeholder: 'Enter your meeting point',  label: false %>
+            <%= f.input :meeting_point, placeholder: 'Enter a meeting point', label: false %>
             <%= f.hidden_field :buddy_destination_id, value: @destination.id %>
             <%= f.submit "Confirm Buddy!", class: "btn" %>
         <% end %>
       </div>
-    </div>
-    </div>
-  </div>
+      <hr />
 
-<%= link_to 'Back', destinations_path, class: "back" %>
+      <div class="reviews">
+          <p class="user-desc"> For reviews </p>
+      </div>
+  </div>
+</div>

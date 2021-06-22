@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       if @reviews.count > 0
         @avg_rating = sum_rating / @reviews.count
       else
-        @avg_rating = 'No reviews'
+        @avg_rating = 0
       end
     end
   end

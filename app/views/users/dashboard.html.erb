@@ -17,7 +17,7 @@
       <div class="d-flex justify-content-between">
         <%= cl_image_tag @my_buddy.photo.key, class: "profile-pic" %>
         <div>
-          <p class = "header-dashboard"><%= @my_buddy.name %></p>
+          <%= link_to @my_buddy.name, user_path(@my_buddy), class: "header-dashboard" %>
         </div>
         <div>
         <p id = "text-dashboard"><%= @my_walk_request.walk_request_status %></p>
@@ -90,7 +90,7 @@
           <%= link_to 'Getting there', walk_path(@walk_request_received), class: "btn-link" %>
         <% end %>
       </div>
-      <% unless @walk_request_received.walk_request_status == "Declined" %>
+      <% unless @walk_request_received.walk_request_status == "Declined" || @walk_request_received.walk_request_status == "Cancelled" %>
         <%= link_to 'Cancel', walk_path(@walk_request_received, format: 'Cancelled'), method: 'PATCH', class: "cancel-btn stayinpage" %>
       <% end %>
     </div>

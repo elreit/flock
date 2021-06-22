@@ -1,14 +1,16 @@
 <div class="walk-show" align="center">
   <div class='whatsapp chat'>
-    <a
-      href="https://api.whatsapp.com/send?phone='<%= current_user.emergency_contact_number %>'&text='Hi <%= current_user.emergency_contact_name %>! I am using Flock to walk from <%= @meet %> to <%= @end %> with <%= @buddy_name %>'"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="btn sharebutton">
-      Share your location via <img src="https://i.imgur.com/bEwFKW7.png" width="20px," height="20px," alt="Whatsapp icon">
-    </a>
-    <h4>Let's walk home...</h4>
-    <button class="btn sharebutton" id="arrived">I've arrived!</button>
+    <p>Let's walk home...</p>
+    <div class='divwashare'>
+      <a
+        href="https://api.whatsapp.com/send?phone='<%= current_user.emergency_contact_number %>'&text='Hi <%= current_user.emergency_contact_name %>! I am using Flock to walk from <%= @meet %> to <%= @end %> with <%= @buddy_name %>'"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="whatsappshare">
+        Share your location via <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+    <p class="btn sharebutton" id="arrived">I've arrived!</p>
     <%= link_to "", new_walk_review_path(@walk), id: "reviewlink", class: "hidden" %>
     <a href="https://api.whatsapp.com/send?phone='<%= current_user.emergency_contact_number %>'&text='<%= current_user.name %> has arrived home safe and sound!'" id="whatsapplink" target="_blank" rel="noopener noreferrer" data-walkid="<%= @walk.id %>"></a>
     </div>

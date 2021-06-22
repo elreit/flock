@@ -27,20 +27,22 @@
 
 
   #pin {
-    font-weight: 700;
-    margin-bottom: 24px;
+    margin-bottom: 18px;
+    font-size: 20px;
+    color: white;
   }
 
   .flock {
-    margin-bottom: 24px;
+    margin-bottom: 22px;
 
     .letsflock {
       background-color: $flock-pink;
       padding: 10px 20px;
       color: white;
       width: 150px;
-      border-radius: 10px;
+      border-radius: 15px;
       font-size: 20px;
+      font-weight: 700;
     }
   }
 
@@ -130,7 +132,7 @@
     width: 207px;
     text-align: center;
     border-radius: 0px;
-    padding-bottom: 5px;
+    padding-bottom: 1px;
     padding-top: 5px;
   }
 

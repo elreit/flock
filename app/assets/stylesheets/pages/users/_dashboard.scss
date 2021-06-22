@@ -60,7 +60,7 @@
   }
 
   .fas.fa-user-check {
-    color: #66DE93;
+    color: #1EAE98;
     font-size: 30px;
     margin-right: 17px;
     margin-top: 15px;
@@ -72,6 +72,10 @@
     font-weight: 700;
     margin-left: 10px;
     text-align: left;
+  }
+
+  .header-dashboard:hover {
+    text-decoration: underline;
   }
 
   .card-body {

@@ -1,17 +1,77 @@
 .users.show {
   // adding your css code here
+  height: 661px;
+  margin: auto;
+  position: relative;
+  background: white;
+  border-radius: 20px;
+  width: 414px;
+
+  .user-show {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .top {
+    height: 245px;
+    width: 414px;
+    background: linear-gradient(90deg, rgba(238,174,202,0.35477941176470584) 31%, rgba(148,199,233,0.6629026610644257) 100%);
+    border-radius: 20px 20px 0 0;
+  }
+
+  .user-name {
+    color: black;
+    text-align: center;
+    padding: 0;
+    font-weight: 900;
+  }
+
+  .bottom {
+    height: 416px;
+    width: 414px;
+    background: linear-gradient(90deg, rgba(238,174,202,0.35477941176470584) 31%, rgba(148,199,233,0.6629026610644257) 100%);
+    border-radius: 0 0 20px 20px;
+  }
+
+  .middle {
+    height: 70px;
+    width: 414px;
+    background: white;
+    border-radius: 0 0 20px 20px;
+    color: black;
+  }
+
+  .review {
+    width: 414px;
+    background: white;
+    border-radius: 0 0 20px 20px;
+  }
+
+  #middle-top {
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 6px;
+  }
+
+  #middle-bottom {
+    color: grey;
+    font-size: 15px;
+  }
+
   img {
-    width: 300px;
-    height: 300px;
+    width: 150px;
+    height: 150px;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    border-radius: 50%;
+    margin: 20px auto;
   }
 
   .info-card {
     background: #EEE;
     padding: 5px;
     width: 414px;
+    height: 736px;
 
       h3 {
         color: black;
@@ -27,31 +87,42 @@
         color: #FD5C65;
       }
 
-      .user-info {
-        color: black;
-        text-align: left;
-        font-size: 16px;
-        margin: 5px 20px;
-        font-weight: 400;
-        width: 414px;
-      }
+    }
 
-      .user-desc {
-        color: black;
-        text-align: left;
-        font-size: 16px;
-        margin: 10px 20px;
-      }
+    .form-control {
+      width: 385px;
+      text-align: left;
+      margin: 10px auto;
+      border-radius: 9px;
+      border: none;
+    }
+
+    .user-info {
+      color: black;
+      text-align: left;
+      font-size: 16px;
+      margin: 5px 20px;
+      font-weight: 400;
+      width: 414px;
+    }
+
+    .user-desc {
+      color: black;
+      text-align: left;
+      font-size: 16px;
+      margin: 10px 20px;
     }
 
    .btn {
-    background: #FD5C65;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    color: white;
-    margin-left: 100px;
-    margin-right: auto;
-    width: 50%;
+      background: #FD5C65;
+      padding-top: 7px;
+      padding-bottom: 7px;
+      color: white;
+      margin-left: 100px;
+      margin-right: auto;
+      width: 50%;
+      border-radius: 15px;
+      margin-top: -10px;
    }
 
    a {
