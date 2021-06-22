@@ -1,0 +1,18 @@
+<div class="container" align="center">
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="favorites">
+        <h3> Your favourite flockers </h3>
+          <% @favorites.each do |favorite| %>
+            <%= favorite.name %>
+            <% Compliment.where(review_id: Review.where(reviewee_id: favorite.id, user_id: @user.id).last.id).each do |compliment| %>
+            <%= compliment.content %>
+            <% end %>
+          <% end %>
+     </div>
+    </div>
+  </div>
+  <%= link_to new_destination_path, class: 'my_link_class' do %>
+    <%= image_tag("home.png", alt: 'image', class: 'my_image_class')%>
+  <% end %>
+</div>
