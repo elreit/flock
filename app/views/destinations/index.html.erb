@@ -12,7 +12,7 @@
               <%= destination.user.name %>
             </div>
               <p><%= Geocoder::Calculations.distance_between([@destination.start_location.latitude, @destination.start_location.longitude], [destination.start_location.latitude, destination.start_location.longitude]).round(2) %> miles</p>
-              <span style="color: #000; padding-left: 15px; margin-top: -10px;"> <%= @avg_rating %> ★
+              <span style="color: #000; padding-left: 15px; margin-top: -10px;"> <%= destination.user.average_rating.round(1) %> ★
               # of Walks: <%= @total_walks %></span>
             </div>
                 <% end %>
