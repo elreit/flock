@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+
   def new
     @review = Review.new
     @walk = Walk.find(params[:walk_id])
@@ -15,7 +16,10 @@ class ReviewsController < ApplicationController
       Compliment.new(content:c)
       end
     if @review.save
-      redirect_to new_destination_path(current_user)
+      if @review.favorite == "1"
+        current_user.favorite(@my_buddy)
+      end
+      redirect_to user_favorites_path(current_user)
     else
       render :new, alert: "Please try again!"
     end
@@ -24,7 +28,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:rating, :content, :reviewee_id, :user_id)
+    params.require(:review).permit(:rating, :content, :reviewee_id, :user_id, :favorite)
   end
 
   def select_other_user

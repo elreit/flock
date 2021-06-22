@@ -1,17 +1,20 @@
-<div class="container" align="center">
-  <div class="row">
-    <div class="col-xs-4">
-      <div class="favorites">
-        <h3> Your favourite flockers </h3>
-          <% @favorites.each do |favorite| %>
+<div class="container">
+  <h3> Your favourite flockers </h3>
+    <% @favorites.each do |favorite| %>
+      <div class="favorite-card">
+        <%= cl_image_tag favorite.photo.key%> <!--need to fix this -->
+        <div class="favorite-card-info">
+          <p class="fav-name">
             <%= favorite.name %>
-            <% Compliment.where(review_id: Review.where(reviewee_id: favorite.id, user_id: @user.id).last.id).each do |compliment| %>
-            <%= compliment.content %>
-            <% end %>
-          <% end %>
-     </div>
-    </div>
-  </div>
+          <span><%= @avg_rating %> </span>
+          </p><br>
+          <%= Compliment.where(review_id: Review.where(reviewee_id: favorite.id, user_id: @user.id).last.id).map(&:content).join(", ") %>
+        </div>
+      </div>
+    <% end %>
+</div>
+
+<div class="sticky-icon" style="position: fixed; bottom:10px; padding-left: 193px; padding-bottom: 20px;">
   <%= link_to new_destination_path, class: 'my_link_class' do %>
     <%= image_tag("home.png", alt: 'image', class: 'my_image_class')%>
   <% end %>
