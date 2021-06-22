@@ -1,5 +1,8 @@
-<div class="btn text-center" id="tab-dashboard"><%= link_to "Back to Map!", walk_path(@walk), :style => "color: white;" %></div>
 
+<div class="top">
+  <div class="btn justify-content-center" id="tab-dashboard"><%= link_to "Back to Map!", walk_path(@walk), :style => "color: white;" %></div>
+  <hr>
+</div>
 <div class="container">
   <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
     <% @chatroom.messages.each do |message| %>
