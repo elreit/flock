@@ -1,6 +1,6 @@
 <div class="destination-index">
-  <h3 class="destination-index">Results</h3>
-    <h4 class="destination-index"><%= @destinations.reject{|dest| dest.user == current_user}.count %> Flocker(s) nearby...</h4>
+  <h3 >Results</h3>
+    <h4 ><%= @destinations.reject{|dest| dest.user == current_user}.count %> Flocker(s) nearby...</h4>
       <div class="cards_container">
         <div class="cards">
           <% if @destinations %>
@@ -13,7 +13,7 @@
             </div>
               <p><%= Geocoder::Calculations.distance_between([@destination.start_location.latitude, @destination.start_location.longitude], [destination.start_location.latitude, destination.start_location.longitude]).round(2) %> miles</p>
               <span style="color: #000; padding-left: 15px; margin-top: -10px;"> <%= @avg_rating %> ★
-              # of Walks: <%=  %></span>
+              # of Walks: <%= @total_walks %></span>
             </div>
                 <% end %>
               <% end %>
