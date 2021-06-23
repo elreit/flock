@@ -34,7 +34,7 @@ puts "Creating users"
 end
 
 mai = User.new(name: "Mai Hoang", email: "mai@email.com", password: "123456", description: "Hey gals I am currently a tax consultant and live in East London. During the busy season I usually go home late and don't feel safe. It would be fantastic to have a buddy to tag along.", emergency_contact_name: "Boris", emergency_contact_number: "447707872023", address: "E16 1EA")
-mai.photo.attach(io: URI.open('https://res.cloudinary.com/djiwfu4hh/image/upload/v1621019969/homepage/6_jebl6q.jpg'), filename: 'avatar.png', content_type: 'image/png')
+mai.photo.attach(io: URI.open('https://res.cloudinary.com/diq781xvq/image/upload/v1624397747/g7t78kmci9103dsqxxcwxca3r6nk.png'), filename: 'avatar.png', content_type: 'image/png')
 mai.save!
 
 luisa = User.new(name: "Luisa Von Funcke", email: "luisa@email.com", password: "123456", description: "Hi ladies I am working in Quality Assurance in a big tech company. I live in West London at the moment and usually walk home around 9. There are some pubs around my flat so it's quite dangerous at night. I would love to share my walk with someone to feel safer", emergency_contact_name: "Marco", emergency_contact_number: "447707872023")
