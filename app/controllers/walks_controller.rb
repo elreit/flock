@@ -31,7 +31,7 @@ class WalksController < ApplicationController
     @walk.walk_request_status = params[:format]
     #changing the schema walk_accepted
     @walk.save
-    redirect_to dashboard_path(current_user)
+    redirect_to dashboard_path(current_user, status: "true")
   end
 
   def routes
