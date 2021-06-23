@@ -1,7 +1,7 @@
 <div class="destination-index">
-  <h3 >Results</h3>
-    <h4 ><%= @destinations.reject{|dest| dest.user == current_user}.count %> Flocker(s) nearby...</h4>
       <div class="cards_container">
+        <h3 id="destination-result" >Results</h3>
+        <h4 id="destination-total"><%= @destinations.reject{|dest| dest.user == current_user}.count %> Flocker(s) nearby...</h4>
         <div class="cards">
           <% if @destinations %>
             <% @destinations.reject{|dest| dest.user == current_user}.each do |destination| %>
@@ -12,8 +12,11 @@
               <%= destination.user.name %>
             </div>
               <p><%= Geocoder::Calculations.distance_between([@destination.start_location.latitude, @destination.start_location.longitude], [destination.start_location.latitude, destination.start_location.longitude]).round(2) %> miles</p>
-              <span style="color: #000; padding-left: 15px; margin-top: -10px;"> <%= destination.user.average_rating.round(1) %> ★
-              # of Walks: <%= @total_walks %></span>
+              <% if destination.user.average_rating %>
+                <span style="color: #000; padding-left: 15px; margin-top: -10px;"> <%= destination.user.average_rating.round(1) %> ★</span>
+              <% else %>
+                <span>No reviews</span>
+              <% end %>
             </div>
                 <% end %>
               <% end %>
@@ -26,9 +29,3 @@
         </div>
       </div>
   </div>
-
-    <p class="back-icon">
-      <%= link_to new_destination_path, class: 'back_link_class' do %>
-      <%= image_tag("back2.png", alt: 'image', class: 'back_image_class')%>
-      <% end %>
-    </p>
