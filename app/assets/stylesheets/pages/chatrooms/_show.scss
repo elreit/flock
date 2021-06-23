@@ -10,6 +10,7 @@
     margin-bottom: 25px;
     margin-left: 35%;
     margin-top: 25px;
+    border-radius: 15px;
   }
 
   .top {
@@ -35,14 +36,20 @@
     background: #1F242C;
   }
 
+  .form-control {
+    border-radius: 9px;
+  }
+
   .container {
     padding-bottom: 40px;
     padding: 20px;
+    position: relative;
+    bottom: 72px;
   }
 
   #messages {
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column;
 
     #user-message {
       display: flex;
