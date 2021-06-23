@@ -8,9 +8,9 @@
 
 .tag-item {
   display: inline-block;
-  width: 48%;
-  margin-left: 4px;
-  margin-right: 4px;
+  width: 42%;
+  margin-left: 8px;
+  margin-right: 8px;
 }
 
 .tag-selector {
@@ -22,7 +22,7 @@
   width: 100%;
   cursor: pointer;
   display: inline-block;
-  font-size: 1.1rem;
+  font-size: 1rem;
   // border-radius: 50rem;
   padding: 0.6rem 0.9rem;
   background-color: #E5E5E5;
@@ -31,6 +31,7 @@
   margin-right: 0.6rem;
   margin-bottom: 0.4rem;
   margin-top: 0.4rem;
+  border-radius: 9px;
 }
 
 .tag-selector:checked + label {

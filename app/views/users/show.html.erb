@@ -33,7 +33,7 @@
         <%= simple_form_for [ @walk ] do |f| %>
             <%= f.input :meeting_point, placeholder: 'Enter a meeting point', label: false %>
             <%= f.hidden_field :buddy_destination_id, value: @destination.id %>
-            <%= f.submit "Confirm Buddy!", class: "btn" %>
+            <%= f.submit "Confirm buddy!", class: "btn", style: "margin-bottom: 10px" %>
         <% end %>
       </div>
       <hr />

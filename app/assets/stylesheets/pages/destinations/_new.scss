@@ -5,19 +5,28 @@
     justify-content: center;
     // margin-top: 220px;
   }
+
+  .form-control {
+    border-radius: 9px !important;
+    padding: 22px !important;
+  }
+
   .destination-textbox {
     color: #fff;
     width: 300px;
     font-size: 18px;
   }
+
   .icon {
     margin-top: -10px;
     margin-bottom: 16px;
   }
+
   .icon img {
     width: 20px;
     height: 20px;
   }
+
   .btn-block {
     align-items: center;
     background: #FD5C65;
@@ -25,16 +34,31 @@
     padding-top: 12px;
     padding-bottom: 12px;
     margin-top:10px;
+    border-radius: 15px;
   }
+
   #find-me {
     color: #fff;
     text-decoration: underline;
     font-size: 16px;
   }
+
   #home-address {
     color: #fff;
     text-decoration: underline;
     font-size: 16px;
+  }
+
+  #info-button {
+    color: #fff;
+    background: #1F242C;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    align-items: center;
+    margin-top: 40px;
+    // margin-bottom: 100px;
+    // padding-left: 100px;
   }
 }
 
