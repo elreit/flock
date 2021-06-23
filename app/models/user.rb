@@ -17,7 +17,7 @@ class User < ApplicationRecord
 
   def average_rating
     reviews = Review.where(reviewee_id: id)
-    avg_rating = 'No reviews'
+    avg_rating = 0
     sum_rating = 0
     if reviews
       reviews.each do |review|
