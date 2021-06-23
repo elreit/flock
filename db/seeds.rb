@@ -64,7 +64,7 @@ start_point1 = Location.new(address: "138 Kingsland Rd, London, E2 8DY")
 start_point1.save!
 start_point2 = Location.new(address: "130 Hoxton St, London, N1 6SH")
 start_point2.save!
-start_point3 = Location.new(address: "297 Kingsland Road, London")
+start_point3 = Location.new(address: "Shoreditch Highstreet, London")
 start_point3.save!
 start_point4 = Location.new(address: "Hoxton station, London")
 start_point4.save!
