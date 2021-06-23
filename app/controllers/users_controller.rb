@@ -40,7 +40,7 @@ class UsersController < ApplicationController
         reviewer = User.find(reviewer_id)
         @review_rating = Review.where(user_id: reviewer_id).last.rating
         @reviewers << reviewer
-        @compliment = Compliment.where(review_id: review.id)
+        # @compliment = Compliment.where(review_id: review.id)
       end
       if @reviews.count > 0
         @avg_rating = sum_rating / @reviews.count

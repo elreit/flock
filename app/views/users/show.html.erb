@@ -10,7 +10,7 @@
       <% when 20..1000 %>
         <h5 class="flock-level">Expert Flocker</h5>
       <% else %>
-        <h5 class="flock-level">Beginner Flocker</h5>
+        <h5 class="flock-level">Newbie Flocker</h5>
       <% end %>
     </div>
   </div>
@@ -43,7 +43,6 @@
           <% @reviewers.each do |reviewer| %>
             <h5 class="reviewer-name"> <%= reviewer.name %> </h5>
             <div class="review-content">
-              <span class="user-desc"><%= @compliment.last.content %></span>
               <span class ="user-desct"><%= '⭐️' * @review_rating %></span>
             </div>
           <% end %>
