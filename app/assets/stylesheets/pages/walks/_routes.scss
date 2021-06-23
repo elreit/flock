@@ -5,9 +5,13 @@
     background: #FD5C65;
     padding-top: 10px auto;
     margin-top:5px;
-    font-size: 20px;
-    border-radius: 10px;
+    font-size: 18px;
+    border-radius: 15px;
     font-weight: 700;
+    width: 185px;
+    text-align: center;
+    margin-left: 9px;
+    margin-bottom: 8px;
   }
 
   .whatsapp {
@@ -16,20 +20,20 @@
   }
 
   .divwashare {
-    text-align: left;
-    margin-left: 24px;
-    margin-bottom: 10px;
+    text-align: center;
+    margin-bottom: 8px;
     .whatsappshare {
-      color: black;
-      background: aliceblue;
-      padding: 7px 8px;
-      margin-left: 0;
-      border-radius: 6px;
+      color: white;
+      background: #1F242C;
+      padding: 3px 11px;
+      border-radius: 15px;
       font-size: 14px;
+      border: 1px solid white;
+      margin-left: 110px;
     }
 
     .fab.fa-whatsapp {
-      color: black;
+      color: white;
       font-size: 20px;
     }
   }

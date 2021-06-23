@@ -8,8 +8,8 @@
         class="whatsappshare">
         Share your location via <i class="fab fa-whatsapp"></i>
       </a>
-      <p class="btn sharebutton" id="arrived">I've arrived!</p>
     </div>
+    <p class="btn sharebutton" id="arrived">I've arrived!</p>
 
     <%= link_to "", new_walk_review_path(@walk), id: "reviewlink", class: "hidden" %>
     <a href="https://api.whatsapp.com/send?phone='<%= current_user.emergency_contact_number %>'&text='<%= current_user.name %> has arrived home safe and sound!'" id="whatsapplink" target="_blank" rel="noopener noreferrer" data-walkid="<%= @walk.id %>"></a>
@@ -27,4 +27,18 @@
 
     </div>
 
-  </div>
+    <div class="hidden" style="display: none;">
+      <p class="btn" id="hiddenalert">Check in</p>
+      <a href="tel:'<%= current_user.emergency_contact_name %>'" id="linkcall">Call</a>
+    </div>
+</div>
+
+<script>
+    const alertButton = document.getElementById("hiddenalert")
+    if (alertButton) {
+      interval = window.setInterval(function() { alertButton.click(); }, 20000);
+      setTimeout(function () {
+         clearInterval(interval);
+       }, 25000);
+    }
+</script>
