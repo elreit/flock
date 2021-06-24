@@ -11,7 +11,7 @@
     </div>
     <p class="btn sharebutton" id="arrived">I've arrived!</p>
     <%= link_to "", new_walk_review_path(@walk), id: "reviewlink", class: "hidden" %>
-    <a href="https://wa.me/<%= current_user.emergency_contact_number %>/?text=<%= current_user.name %> has arrived home safe and sound!" id="whatsapplink" target="_blank" rel="noopener noreferrer" data-walkid="<%= @walk.id %>"></a>
+    <a href="https://wa.me/<%= current_user.emergency_contact_number %>/?text=I have arrived home safe and sound!" id="whatsapplink" target="_blank" rel="noopener noreferrer" data-walkid="<%= @walk.id %>"></a>
   </div>
 
 
