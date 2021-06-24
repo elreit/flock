@@ -1,54 +1,57 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="edit-account" style="align-items: center; margin-right: 60px; margin-left: 60px;">
+  <h4 style="margin-left:-40px; margin-bottom: 20px;">Edit the items you'd like to update</h4>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= f.error_notification %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+      <div class="form-inputs">
+        <div class="edit-inputs">
+          <%= f.input :email, required: true, autofocus: true %>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <%= f.input :password, placeholder: 'Update your password',
+                      # hint: "leave it blank if you don't want to change it",
+                      required: false,
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :password_confirmation, placeholder: 'Confirm your new password',
+                      required: false,
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :address, placeholder: 'Update your address',
+                      required: false,
+                      autofocus: true,
+                      input_html: { autocomplete: "new-address" }%>
+          <%= f.input :emergency_contact_name,
+                      required: false,
+                      autofocus: true,
+                      input_html: { autocomplete: "new-emergency-contact-name" }%>
+          <%= f.input :emergency_contact_number,
+                      required: false,
+                      autofocus: true,
+                      input_html: { autocomplete: "new-emergency-contact-number" }%>
+          <%= f.input :description,
+                      required: false,
+                      autofocus: true,
+                      input_html: { autocomplete: "new-description" },
+                      label: "Bio description"%>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Update", class: "btn btn-block", style: "background: #FD5C65; color: white; padding-top: 12px; padding-bottom: 12px; margin-top:10px; border-radius: 15px; " %>
+      </div>
     <% end %>
 
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :address,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "new-address" }%>
-    <%= f.input :emergency_contact_name,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "new-emergency-contact-name" }%>
-    <%= f.input :emergency_contact_number,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "new-emergency-contact-number" }%>
-    <%= f.input :description,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "new-description" },
-                label: "New bio description"%>
+    <br />
+
+    <h4>Leaving Flock?... 🥺 </h4>
+
+    <p><%= link_to "Cancel account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, style:'color:#fff; display: flex; justify-content: center; margin-top: -10px;' %></p>
+
+    <div class="sticky-icon" align="center" style="margin-bottom: 20px;">
+      <%= link_to new_destination_path, class: 'my_link_class' do %>
+        <%= image_tag("home.png", alt: 'image', class: 'my_image_class')%>
+      <% end %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Update", class: "btn btn-primary" %>
-  </div>
-<% end %>
-
-<br />
-
-<h4>Leaving Flock... 🥺 </h4>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", root_path %>
+</div>
