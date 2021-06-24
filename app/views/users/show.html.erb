@@ -10,19 +10,21 @@
       <% when 20..1000 %>
         <h5 class="flock-level">Expert Flocker</h5>
       <% else %>
-        <h5 class="flock-level">Beginner Flocker</h5>
+        <h5 class="flock-level">Newbie Flocker</h5>
       <% end %>
     </div>
   </div>
 
   <div class="middle d-flex flex-column">
     <div class="d-flex justify-content-around" id="middle-top">
-      <div class="bd-highlight"><%= @total_walks %></div>
-      <div class="bd-highlight"><%= @avg_rating %> ★</div>
-    </div>
-    <div class="d-flex justify-content-around" id="middle-bottom">
-      <div class="bd-highlight">walks done</div>
-      <div class="bd-highlight">avg rating</div>
+      <div>
+        <div class="bd-highlight"><%= @total_walks %></div>
+        <div id="middle-bottom">walks done</div>
+      </div>
+      <div>
+        <div class="bd-highlight"><%= @avg_rating.round(2) %> ★</div>
+        <div id="middle-bottom">avg rating</div>
+      </div>
     </div>
   </div>
 
@@ -40,13 +42,26 @@
 
       <div class="reviews">
           <h5 class="review-title"> Reviews </h5>
+        <% if @reviewers.length > 0 %>
           <% @reviewers.each do |reviewer| %>
-            <h5 class="reviewer-name"> <%= reviewer.name %> </h5>
-            <div class="review-content">
-              <span class="user-desc"><%= @compliment.last.content %></span>
-              <span class ="user-desct"><%= '⭐️' * @review_rating %></span>
+            <% rev = Review.where(reviewee_id: @user.id, user_id: reviewer.id).last %>
+            <% if rev %>
+             <div class="reviewer-top d-flex">
+              <%= cl_image_tag User.find(rev.user_id).photo.key, id:"reviewers-img"%>
+              <h5 class="reviewer-name"> <%= User.find(rev.user_id).name %> </h5>
+            </div>
+            <div class="review-content d-flex justify-content-around">
+              <span class ="star"><%= '★' * rev.rating %></span>
+              <% compliment = Compliment.where(review_id: rev.id) %>
+              <% if compliment.present? %>
+                  <span><%= compliment.last.content %></span>
+              <% else %>
+                  <span style="width: 54px;"></span>
+              <% end %>
             </div>
           <% end %>
+        <% end %>
+        <% end %>
       </div>
   </div>
 </div>

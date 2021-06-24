@@ -33,14 +33,13 @@ class UsersController < ApplicationController
     @reviews = Review.where(reviewee_id: @user.id)
     sum_rating = 0
     @reviewers = []
+    # get all the reviewers and avg rating
     if @reviews
       @reviews.each do |review|
         sum_rating += review.rating
         reviewer_id = review.user_id
         reviewer = User.find(reviewer_id)
-        @review_rating = Review.where(user_id: reviewer_id).last.rating
         @reviewers << reviewer
-        @compliment = Compliment.where(review_id: review.id)
       end
       if @reviews.count > 0
         @avg_rating = sum_rating / @reviews.count

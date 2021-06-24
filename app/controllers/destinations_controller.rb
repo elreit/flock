@@ -36,6 +36,10 @@ class DestinationsController < ApplicationController
     @start_locations = Location.near([@destination.start_location.latitude, @destination.start_location.longitude], 2.5)
     @end_locations = Location.near([@destination.end_location.latitude, @destination.end_location.longitude], 2.5)
     @destinations = Destination.where(start_location_id: @start_locations.map(&:id), end_location_id: @end_locations.map(&:id))
+    # @users = User.where(id: @destinations.distinct.pluck(:user_id))
+    # @users.each do |user|
+    #   @user_destination = user.destinations.last
+    # end
     # @reviews = Review.where(reviewee_id: @user.id)
     # sum_rating = 0
     # if @reviews

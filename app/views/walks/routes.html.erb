@@ -5,7 +5,7 @@
         href="https://wa.me/<%= current_user.emergency_contact_number %>/?text=Hi <%= current_user.emergency_contact_name %>! I am using Flock to walk from <%= @meet %> to <%= @end %> with <%= @buddy_name %>"
         target="_blank"
         rel="noopener noreferrer"
-        class="btn sharebutton">
+        class="whatsappshare">
         Share your location via <img src="https://i.imgur.com/bEwFKW7.png" width="20px," height="20px," alt="Whatsapp icon">
       </a>
     </div>
@@ -43,4 +43,3 @@
        }, 25000);
     }
 </script>
-
