@@ -20,15 +20,13 @@
           <%= link_to @my_buddy.name, user_path(@my_buddy), class: "header-dashboard" %>
         </div>
         <div>
-        <p id = "text-dashboard"><%= @my_walk_request.walk_request_status %></p>
-        <% if @my_walk_request.walk_request_status == "Confirmed" %>
-          <p id = "text-dashboard"><%= @my_walk_request.pin %></p>
-        <% end %>
+          <p id = "text-dashboard"><%= @my_walk_request.walk_request_status %></p>
         </div>
       </div>
       <div>
         <p id="text-dashboard"><i class="fas fa-map-pin"></i> <%= @my_walk_request.meeting_point %></p>
         <% if @my_walk_request.walk_request_status == "Confirmed" %>
+          <p id = "text-dashboard" style="text-align: center;">PIN: <%= @my_walk_request.pin %></p>
           <%= link_to 'Getting there', walk_path(@my_walk_request), class: "btn-link" %>
         <% end %>
       </div>
@@ -76,7 +74,6 @@
           <% else %>
           <div>
             <p id = "text-dashboard"><%= @walk_request_received.walk_request_status %></p>
-            <p id = "text-dashboard">PIN: <%= @walk_request_received.pin %></p>
           </div>
           <% end %>
         <% else %>
@@ -87,6 +84,7 @@
       <div>
         <p id = "text-dashboard"><i class="fas fa-map-pin"></i> <%= @walk_request_received.meeting_point %></p>
         <% if @walk_request_received.walk_request_status == "Confirmed" %>
+          <p id = "text-dashboard" style="text-align: center;">PIN: <%= @walk_request_received.pin %></p>
           <%= link_to 'Getting there', walk_path(@walk_request_received), class: "btn-link" %>
         <% end %>
       </div>
@@ -123,8 +121,6 @@
     </ul>
   </div>
 </div>
-
-
 
 <script>
     window.setInterval('refresh()', 8000);

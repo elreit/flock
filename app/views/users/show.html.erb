@@ -17,12 +17,14 @@
 
   <div class="middle d-flex flex-column">
     <div class="d-flex justify-content-around" id="middle-top">
-      <div class="bd-highlight"><%= @total_walks %></div>
-      <div class="bd-highlight"><%= @avg_rating.round(1) %> ★</div>
-    </div>
-    <div class="d-flex justify-content-around" id="middle-bottom">
-      <div class="bd-highlight">walks done</div>
-      <div class="bd-highlight">avg rating</div>
+      <div>
+        <div class="bd-highlight"><%= @total_walks %></div>
+        <div id="middle-bottom">walks done</div>
+      </div>
+      <div>
+        <div class="bd-highlight"><%= @avg_rating.round(2) %> ★</div>
+        <div id="middle-bottom">avg rating</div>
+      </div>
     </div>
   </div>
 

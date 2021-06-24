@@ -23,13 +23,13 @@
             </div>
               <p><%= Geocoder::Calculations.distance_between([@destination.start_location.latitude, @destination.start_location.longitude], [destination.start_location.latitude, destination.start_location.longitude]).round(2) %> miles</p>
               <% if destination.user.average_rating %>
-              <div class="d-flex justify-content-between" style="margin: -5px 15px auto 15px;">
+              <div class="d-flex justify-content-between" style="margin: -9px 15px auto 15px;">
+                <span style="color: #000; padding-left: 3px;"> <%= destination.user.average_rating.round(1) %> ★</span>
                 <span><%= total_walks %> <i class="fas fa-walking"></i></span>
-                <span style="color: #000; padding-left: 15px;"> <%= destination.user.average_rating.round(1) %> ★</span>
               </div>
               <% else %>
-                <span><%= total_walks %> walks done</span>
                 <span>No reviews</span>
+                <span><%= total_walks %> walks done</span>
               <% end %>
             </div>
                 <% end %>
