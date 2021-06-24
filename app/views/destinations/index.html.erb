@@ -1,7 +1,7 @@
-<div class="destination-index">
-      <div class="cards_container">
-        <h3 id="destination-result" >Results</h3>
-        <h4 id="destination-total"><%= @destinations.reject{|dest| dest.user == current_user}.count %> Flocker(s) nearby...</h4>
+  <div class="destination-index d-flex justify-content-center align-items-center flex-column">
+      <div class="cards-container">
+        <h3 >Results</h3>
+        <h4><%= @destinations.reject{|dest| dest.user == current_user}.count %> Flocker(s) nearby...</h4>
         <div class="cards">
           <% if @destinations %>
             <% @destinations.reject{|dest| dest.user == current_user}.each do |destination| %>
