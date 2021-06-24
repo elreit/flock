@@ -50,7 +50,7 @@ emma.photo.attach(io: URI.open('https://res.cloudinary.com/diq781xvq/image/uploa
 emma.save!
 
 anne = User.new(name: "Anne de Joly", email: "anne@email.com", password: "123456", description: "Hi girls, I am a teacher at Le Wagon. I sometimes have evening classes so walk home late. I would love to have a buddy to share the walk with me as it could be scary at times", emergency_contact_name: "Boris", emergency_contact_number: "447707872023")
-anne.photo.attach(io: URI.open('https://res.cloudinary.com/diq781xvq/image/upload/v1623348896/oq7qnbqnylry314xj2zfi5fe8ly9.jpg'), filename: 'avatar.jpg', content_type: 'image/jpg')
+anne.photo.attach(io: URI.open('https://res.cloudinary.com/djiwfu4hh/image/upload/v1624560802/anne_lsn0ai.jpg'), filename: 'avatar.jpg', content_type: 'image/jpg')
 anne.save!
 
 charlotte = User.new(name: "Charlotte Jacobs", email: "charlotte@email.com", password: "123456", description: "Hi girls, I am a TV producer and my shoots often run on late. Sometimes this is after public transport timetable and I'd feel more comfortable having someone to walk back with.", emergency_contact_name: "David", emergency_contact_number: "447707872023")

@@ -2,6 +2,9 @@ h3 {
   color: #fff;
 }
 
+.rating {
+  align: left;
+}
 .favorite-card img {
   height: 100%;
   width: 120px;
@@ -17,6 +20,10 @@ h3 {
   margin-bottom: -2px;
   margin-right: 0px;
   margin-top: -2px;
+}
+
+.rating {
+  text-align: left;
 }
 
 .favorite-card {
