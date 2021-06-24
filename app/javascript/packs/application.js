@@ -81,7 +81,7 @@ document.addEventListener('turbolinks:load', () => {
     initSweetalert('hiddenalert', {
       title: "Hey Flocker, is everything okay?",
       buttons: {
-       okay: "I'am alright",
+       okay: "I'm alright",
        notokay: "No, HELP"},
     }, (value) => {
       switch(value) {

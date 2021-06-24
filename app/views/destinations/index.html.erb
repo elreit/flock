@@ -10,11 +10,25 @@
               <%= cl_image_tag destination.user.photo.key %>
             <div class="text-block">
               <%= destination.user.name %>
+              <% total_walks = 0 %>
+              <% past_dest = Destination.where(user_id: destination.user.id) %>
+              <% if past_dest %>
+                <% past_dest.each do |dest| %>
+                  <% walks_as_requestor = Walk.where(user_destination_id: dest.id, walk_request_status: "Accepted").count %>
+                  <% total_walks += walks_as_requestor %>
+                  <% walks_as_buddy = Walk.where(buddy_destination_id: dest.id, walk_request_status: "Accepted").count %>
+                  <% total_walks += walks_as_buddy %>
+                <% end %>
+              <% end %>
             </div>
               <p><%= Geocoder::Calculations.distance_between([@destination.start_location.latitude, @destination.start_location.longitude], [destination.start_location.latitude, destination.start_location.longitude]).round(2) %> miles</p>
               <% if destination.user.average_rating %>
-                <span style="color: #000; padding-left: 15px; margin-top: -10px;"> <%= destination.user.average_rating.round(1) %> ★</span>
+              <div class="d-flex justify-content-between" style="margin: -5px 15px auto 15px;">
+                <span><%= total_walks %> <i class="fas fa-walking"></i></span>
+                <span style="color: #000; padding-left: 15px;"> <%= destination.user.average_rating.round(1) %> ★</span>
+              </div>
               <% else %>
+                <span><%= total_walks %> walks done</span>
                 <span>No reviews</span>
               <% end %>
             </div>
