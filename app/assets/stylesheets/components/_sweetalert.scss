@@ -1,13 +1,13 @@
 .swal-title {
-  margin: 0px;
-  font-size: 14px;
+  margin: -12;
+  font-size: 20px;
 }
 
 .swal-button {
   padding: 7px 19px;
-  border-radius: 2px;
+  border-radius: 16px;
   background-color: #FD5C65;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .swal-text {
@@ -24,4 +24,12 @@
 
 .swal-icon--success__line {
   background-color: #FD5C65;
+}
+
+.swal-footer {
+  text-align: center;
+}
+
+.swal-button.swal-button--notokay {
+  border: none;
 }

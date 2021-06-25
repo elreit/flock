@@ -1,11 +1,128 @@
 .users.show {
   // adding your css code here
+  height: 661px;
+  margin: auto;
+  position: relative;
+  background: white;
+  border-radius: 20px;
+  width: 414px;
+
+  .user-show {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #1F242C;
+  }
+
+  .top {
+    height: 270px;
+    width: 392px;
+    background: #E7D3CC;
+    border-radius: 20px 20px 0 0;
+    margin-left: 11px;
+  }
+
+  .user-name {
+    color: black;
+    text-align: center;
+    padding: 0;
+    font-weight: 900;
+  }
+
+  .flock-level {
+    font-size: 16px;
+    color: darkslategrey;
+    text-align: center;
+    padding: 0px;
+  }
+
+  .bottom {
+    height: 416px;
+    width: 392px;
+    background: white;
+    border-radius: 0 0 20px 20px;
+    margin-left: 11px;
+  }
+
+  .middle {
+    height: 70px;
+    width: 392px;
+    background: white;
+    border-radius: 0;
+    color: black;
+    margin-top: -12px;
+    margin-left: 11px;
+    border-bottom: 1px solid lightgrey;
+  }
+
+  .reviews {
+    width: 392px;
+    background: white;
+    border-radius: 0 0 20px 20px;
+
+    .reviewer-top {
+      margin-left: 20px;
+      margin-bottom: 5px;
+    }
+
+    span {
+      color: black;
+      font-style: italic;
+      font-size: 14px;
+      color: grey;
+    }
+
+    .star {
+      font-style: normal;
+      margin-left: 30px;
+    }
+
+    #reviewers-img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      margin: 0;
+      padding: 0;
+    }
+  }
+  hr {
+    margin-bottom: 0rem;
+  }
+  .review-title {
+    color: black;
+    padding-left: 20px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .reviewer-name {
+    color: black;
+    font-size: 16px;
+    padding-left: 20px;
+    font-weight: 400;
+  }
+  .review-content {
+    display: flex;
+    padding-bottom: 15px;
+  }
+  #middle-top {
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 6px;
+    text-align: center;
+  }
+
+  #middle-bottom {
+    color: grey;
+    font-size: 15px;
+    font-weight: 400;
+  }
+
   img {
-    width: 300px;
-    height: 300px;
+    width: 150px;
+    height: 150px;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    border-radius: 50%;
+    margin: 20px auto 10px auto;
   }
 
   .back-icon img {
@@ -18,6 +135,7 @@
     background: #EEE;
     padding: 5px;
     width: 414px;
+    height: 736px;
 
       h3 {
         color: black;
@@ -33,31 +151,41 @@
         color: #FD5C65;
       }
 
-      .user-info {
-        color: black;
-        text-align: left;
-        font-size: 16px;
-        margin: 5px 20px;
-        font-weight: 400;
-        width: 414px;
-      }
+    }
 
-      .user-desc {
-        color: black;
-        text-align: left;
-        font-size: 16px;
-        margin: 10px 20px;
-      }
+    .form-control {
+      width: 368px;
+      text-align: left;
+      margin: 10px auto;
+      border-radius: 9px;
+    }
+
+    .user-info {
+      color: black;
+      text-align: left;
+      font-size: 16px;
+      margin: 5px 20px;
+      font-weight: 400;
+      width: 414px;
+    }
+
+    .user-desc {
+      color: black;
+      text-align: center;
+      font-size: 16px;
+      margin: 10px 20px;
     }
 
    .btn {
-    background: #FD5C65;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    color: white;
-    margin-left: 100px;
-    margin-right: auto;
-    width: 50%;
+      background: #FD5C65;
+      padding-top: 7px;
+      padding-bottom: 7px;
+      color: white;
+      margin-left: 100px;
+      margin-right: auto;
+      width: 50%;
+      border-radius: 15px;
+      margin-top: -10px;
    }
 
    a {

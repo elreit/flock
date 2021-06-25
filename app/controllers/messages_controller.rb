@@ -6,10 +6,11 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.chatroom = @chatroom
     @message.user = current_user
+    my_buddy = @message.chatroom.walk.buddy_destination.user
     if @message.save
       ChatroomChannel.broadcast_to(
         @chatroom,
-        render_to_string(partial: "message", locals: { message: @message })
+        render_to_string(partial: "message", locals: { message: @message, buddy: my_buddy })
       )
 
       redirect_to chatroom_path(@chatroom, anchor: "message-#{@message.id}")

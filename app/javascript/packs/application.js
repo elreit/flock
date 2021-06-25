@@ -76,5 +76,25 @@ document.addEventListener('turbolinks:load', () => {
         }
       break;
     }
-  });
+    });
+   // fake alert for walk routes
+    initSweetalert('hiddenalert', {
+      title: "Hey Flocker, is everything okay?",
+      buttons: {
+       okay: "I'm alright",
+       notokay: "No, HELP"},
+    }, (value) => {
+      switch(value) {
+        case "okay":
+          closeModal: true;
+        break;
+
+        case "notokay":
+          const callNumber = document.getElementById('linkcall');
+          if (callNumber) {
+            callNumber.click();
+          }
+        break;
+      }
+    });
 })
