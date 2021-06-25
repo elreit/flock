@@ -37,8 +37,8 @@ emma = User.new(name: "Emma Reitman", email: "emma@email.com", password: "123456
 emma.photo.attach(io: URI.open('https://res.cloudinary.com/diq781xvq/image/upload/v1623345944/iht9frnudlxr5wh4fygfua1w8ghq.jpg'), filename: 'avatar.jpg', content_type: 'image/jpg')
 emma.save!
 
-anne = User.new(name: "Anne de Joly", email: "anne@email.com", password: "123456", description: "Hi girls, I am a teacher at Le Wagon. I sometimes have classes in the evening so have to walk home quite late. I would love to have a buddy to share the walk with me as it could be scary at times walking in Shoreditch High Street", emergency_contact_name: "Ife", emergency_contact_number: "447483400327", address: "56 Shoreditch High Street, London")
-anne.photo.attach(io: URI.open('https://res.cloudinary.com/diq781xvq/image/upload/v1623348896/oq7qnbqnylry314xj2zfi5fe8ly9.jpg'), filename: 'avatar.jpg', content_type: 'image/jpg')
+anne = User.new(name: "Anne de Joly", email: "anne@email.com", password: "123456", description: "Hi girls, I am a teacher at Le Wagon. I sometimes have evening classes so walk home late. I would love to have a buddy to share the walk with me as it could be scary at times", emergency_contact_name: "Boris", emergency_contact_number: "447707872023")
+anne.photo.attach(io: URI.open('https://res.cloudinary.com/djiwfu4hh/image/upload/v1624642387/anne_vu0xlo.jpg'), filename: 'avatar.jpg', content_type: 'image/jpg')
 anne.save!
 
 puts "Creating 3 other users in Canning Town"

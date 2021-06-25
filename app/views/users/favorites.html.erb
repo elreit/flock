@@ -6,7 +6,7 @@
         <div class="favorite-card-info">
           <p class="fav-name">
             <%= favorite.name %>
-          <span style="font-size: 14px; padding-left: 10px;"><%= favorite.average_rating.round(1) %>★</span>
+          <span class="rating" style="font-size: 14px; float: right; margin-top: 5px;"><%= favorite.average_rating.round(1) %>★</span>
           </p><br>
           <%= Compliment.where(review_id: Review.where(reviewee_id: favorite.id, user_id: @user.id).last.id).map(&:content).join(", ") %>
         </div>
@@ -14,7 +14,7 @@
     <% end %>
 </div>
 
-<div class="sticky-icon" style="position: fixed; bottom:10px; padding-left: 193px; padding-bottom: 20px;">
+<div class="sticky-icon" align="center" style="position: fixed; bottom:10px; padding-left: 193px; padding-bottom: 20px;">
   <%= link_to new_destination_path, class: 'my_link_class' do %>
     <%= image_tag("home.png", alt: 'image', class: 'my_image_class')%>
   <% end %>
