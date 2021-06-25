@@ -2,9 +2,9 @@ h3 {
   color: #fff;
 }
 
-.rating {
-  align: left;
-}
+// .rating {
+//   text-align: right;
+// }
 .favorite-card img {
   height: 100%;
   width: 120px;
@@ -13,17 +13,13 @@ h3 {
 }
 
 .fav-name {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   text-align: left;
   color:#000;
   margin-bottom: -2px;
   margin-right: 0px;
   margin-top: -2px;
-}
-
-.rating {
-  text-align: left;
 }
 
 .favorite-card {
