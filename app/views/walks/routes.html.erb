@@ -30,7 +30,7 @@
 
     <div class="hidden" style="display: none;">
       <p class="btn" id="hiddenalert">Check in</p>
-      <a href="tel:'<%= current_user.emergency_contact_name %>'" id="linkcall">Call</a>
+      <a href="tel:'+<%= current_user.emergency_contact_number%>'" id="linkcall">Call</a>
     </div>
 </div>
 

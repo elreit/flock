@@ -19,8 +19,8 @@
         <div>
           <%= link_to @my_buddy.name, user_path(@my_buddy), class: "header-dashboard" %>
         </div>
-        <div>
-          <p id = "text-dashboard"><%= @my_walk_request.walk_request_status %></p>
+        <div class="status">
+          <p id="status"><%= @my_walk_request.walk_request_status %></p>
         </div>
       </div>
       <div>
@@ -53,7 +53,7 @@
       <div class="d-flex justify-content-between">
         <%= cl_image_tag @requester.photo.key, class: "profile-pic" %>
         <div>
-          <p class = "header-dashboard"> <%= @requester.name %> </p>
+          <%= link_to @requester.name, user_path(@requester), class: "header-dashboard" %>
         </div>
         <div>
         <% case @walk_request_received.walk_request_status %>
@@ -67,17 +67,17 @@
             </div>
           <% end %>
         <% when "Cancelled" %>
-          <p id = "text-dashboard"><%= @walk_request_received.walk_request_status %></p>
+          <p id="status"><%= @walk_request_received.walk_request_status %></p>
         <% when "Confirmed" %>
           <% if @my_walk_request && @my_walk_request.walk_request_status == "Confirmed" %>
             <div><p class="unique-notice">You can only have 1 buddy at a time. Cancel your request to modify this request</p></div>
           <% else %>
           <div>
-            <p id = "text-dashboard"><%= @walk_request_received.walk_request_status %></p>
+            <p id="status"><%= @walk_request_received.walk_request_status %></p>
           </div>
           <% end %>
         <% else %>
-          <p id = "text-dashboard"><%= @walk_request_received.walk_request_status %></p>
+          <p id="status"><%= @walk_request_received.walk_request_status %></p>
         <% end %>
       </div>
       </div>
@@ -122,10 +122,10 @@
   </div>
 </div>
 
-<script>
+<!-- <script>
     window.setInterval('refresh()', 8000);
 
     function refresh() {
         window.location.reload();
     }
-</script>
+</script> -->
