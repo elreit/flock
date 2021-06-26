@@ -26,7 +26,7 @@ mai.photo.attach(io: URI.open('https://res.cloudinary.com/diq781xvq/image/upload
 mai.save!
 
 luisa = User.new(name: "Luisa Von Funcke", email: "luisa@email.com", password: "123456", description: "Hi ladies I am working in Quality Assurance in a big tech company. I live in West London at the moment and usually walk home around 9. There are some pubs around my flat so it's quite dangerous at night. I would love to share my walk with someone to feel safer", emergency_contact_name: "Marco", emergency_contact_number: "447483400327")
-luisa.photo.attach(io: URI.open('https://res.cloudinary.com/diq781xvq/image/upload/v1623343312/75794762_qo3zco.png'), filename: 'avatar.jpg', content_type: 'image/jpg')
+luisa.photo.attach(io: URI.open('https://res.cloudinary.com/diq781xvq/image/upload/v1623343312/75794762_qo3zco.png'), filename: 'avatar.png', content_type: 'image/png')
 luisa.save!
 
 rosi = User.new(name: "Rosita Alvarado", email: "rosi@email.com", password: "123456", description: "I'm from Los Angeles and moved to London this past March. I currently work as an administrative manager of an academic research journal. I am living alone around Shoreditch area. It would be great to have someone to walk home together.", emergency_contact_name: "Lucien", emergency_contact_number: "447483400327", address: "7 Boundary Street, London")
