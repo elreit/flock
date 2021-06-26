@@ -33,7 +33,7 @@ rosi = User.new(name: "Rosita Alvarado", email: "rosi@email.com", password: "123
 rosi.photo.attach(io: URI.open('https://res.cloudinary.com/diq781xvq/image/upload/v1623343311/67096324_i2t9rc.jpg'), filename: 'avatar.jpg', content_type: 'image/jpg')
 rosi.save!
 
-emma = User.new(name: "Emma Reitman", email: "emma@email.com", password: "123456", description: "Hiya! I am from London and work at an advertising agency. I live in West London and due to the nature of my work I sometimes walk home really late. I don't feel safe around my area and would love to have someone to walk together.", emergency_contact_name: "Sam", emergency_contact_number: "447483400327", address: "139 Kingsland Road, London")
+emma = User.new(name: "Emma Reitman", email: "emma@email.com", password: "123456", description: "Hiya! I am from London and work at an advertising agency. I live in West London and due to the nature of my work I sometimes walk home really late. I don't feel safe around my area and would love to have someone to walk together.", emergency_contact_name: "Sam", emergency_contact_number: "447483400327", address: "58-60 Redchurch St, London, E2 7DP")
 emma.photo.attach(io: URI.open('https://res.cloudinary.com/diq781xvq/image/upload/v1623345944/iht9frnudlxr5wh4fygfua1w8ghq.jpg'), filename: 'avatar.jpg', content_type: 'image/jpg')
 emma.save!
 
