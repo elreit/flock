@@ -1,1 +1,2 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+Flock is a webapp that allows women to find other women nearby walking a similar or the same direction to them so they don't have to walk all of their route alone. 
+It was built by a team of 4 part-time Web Development students from Le Wagon London's Batch #525. It was built on Rails with Ruby, CSS, JS and HTML. This was our final Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
